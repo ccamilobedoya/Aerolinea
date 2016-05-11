@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/05/2016 09:52:02 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.edu.udea.dto.Cliente" table="CLIENTE">
+        <id name="id_cliente" type="java.lang.Integer">
+            <column name="id_cliente" />
+            <generator class="increment" />
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="nombre" />
+        </property>
+        <property name="documento" type="java.lang.String">
+            <column name="documento" />
+        </property>
+        <many-to-one name="tipoDocumento" class="com.edu.udea.dto.TipoDocumento" fetch="join">
+            <column name="tipodocumento" />
+        </many-to-one>
+        <property name="correo" type="java.lang.String">
+            <column name="correo" />
+        </property>
+    </class>
+</hibernate-mapping>

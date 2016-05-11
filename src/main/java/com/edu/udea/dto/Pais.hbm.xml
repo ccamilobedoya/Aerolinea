@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/04/2016 11:43:22 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.edu.udea.dto.Pais" table="PAIS">
+        <id name="id_pais" type="java.lang.Integer">
+            <column name="id_pais" />
+            <generator class="increment" />
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="nombre" />
+        </property>
+    </class>
+</hibernate-mapping>

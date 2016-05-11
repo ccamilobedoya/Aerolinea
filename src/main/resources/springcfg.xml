@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+
+	<context:component-scan base-package="com.edu.udea.*" />
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/Aerolinea"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mappingResources">
+			<list>
+
+				<value>com/edu/udea/dto/Pais.hbm.xml</value>
+				<value>com/edu/udea/dto/Cliente.hbm.xml</value>
+				<value>com/edu/udea/dto/Socio.hbm.xml</value>
+				<value>com/edu/udea/dto/TipoDocumento.hbm.xml</value>
+
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="javax.persistence.validation.mode">none</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		<property name="dataSource" ref="dataSource"></property>
+
+	</bean>
+	
+	<bean id="paisDao" class="com.edu.udea.dao.impl.PaisDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="clienteDao" class="com.edu.udea.dao.impl.ClienteDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="socioDao" class="com.edu.udea.dao.impl.SocioDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="tipodocumentoDao" class="com.edu.udea.dao.impl.TipoDocumentoDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="socioBl" class="com.edu.udea.bl.impl.SocioBLImpl">
+		<property name="socioDao" ref="socioDao"></property>
+		<property name="clienteDao" ref="clienteDao"></property>
+		<property name="tipodocumentoDao" ref="tipodocumentoDao"></property>
+	</bean>
+
+</beans>
+
+
+
