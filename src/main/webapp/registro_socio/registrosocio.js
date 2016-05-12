@@ -17,9 +17,12 @@ angular.module('app.registrosocio', ['ngRoute'])
 .controller('registroSocioCtrl',
 		function ($scope, $http){
 			$scope.documento = '';
-			$scope.tipoDocumento = '';
 			$scope.usuario = '';
 			$scope.contrasena = '';
+      $scope.tipoDocumento = '';
+      $scope.hallarTipoDocumento = function (item) {
+        $scope.tipoDocumento = item;
+      };
 			$scope.registrar = function() {
 				var datos = JSON.stringify(
 					{
@@ -39,6 +42,7 @@ angular.module('app.registrosocio', ['ngRoute'])
         	   alert("Socio creado");
         	  }
           );
-		}
-	}
+      };
+      $scope.tiposDocumentos = ['Cedula', 'DNI'];
+    }
   )

@@ -3,19 +3,47 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Aerolinea UdeA</title>
-	
-	
+	<!-- Hojas de estilo -->
+	<link rel="stylesheet" href="resources/css/bootstrap.css">
+	<link rel="stylesheet" href="resources/css/app.css">
 </head>
 <body ng-app="app">
-	
-	<a href="#registro">Registro</a>
-	<br>
+
+	<div id="nav">
+  <div class="navbar navbar-inverse navbar-fixed-top" data-spy="affix" data-offset-top="100">
+    <div class="container">
+			<div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+				<a href="#" class="navbar-brand">Aerolinea UdeA</a>
+			</div>
+
+      <div class="navbar-collapse collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+					<li><a href="#">Link</a></li>
+					<li><a href="#">Link</a></li>
+        </ul>
+				<ul class="nav navbar-nav navbar-right">
+          <li><a href="#registro">Socios</a></li>
+				</ul>
+      </div>
+    </div>
+  </div><!-- /.navbar -->
+
+	<!-- Visor para el resto de las paginas -->
 	<div ng-view></div>
-	
-	
+
+
 	<!-- Lista de Scripts -->
-	<script type="text/javascript" src=resources/js/angular.js></script>
-	<script type="text/javascript" src=resources/js/angular-route.js></script>
+	<script type="text/javascript" src="resources/js/angular.js"></script>
+	<script type="text/javascript" src="resources/js/angular-route.js"></script>
+	<script type="text/javascript" src="resources/js/jquery.js"></script>
+	<script type="text/javascript" src="resources/js/bootstrap.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript" src="registro_socio/registrosocio.js"></script>
 </body>

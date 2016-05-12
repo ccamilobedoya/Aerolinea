@@ -1,0 +1,35 @@
+html,body {
+	height:100%;
+  padding-top:70px;
+	background-color: #65947a;
+
+}
+
+.affix {
+  padding:0px;
+  -webkit-transition:padding 0.2s linear;
+  -moz-transition:padding 0.2s linear;
+  -o-transition:padding 0.2s linear;
+  transition:padding 0.2s linear;
+
+}
+
+.affix-top {
+  padding-top:15px;
+  padding-bottom:15px;
+  -webkit-transition:padding 0.5s linear;
+  -moz-transition:padding 0.5s linear;
+  -o-transition:padding 0.5s linear;
+  transition:padding 0.5s linear;
+}
+
+.panel-registro {
+	border-width: 2px;
+	border-color: #d6d6d6;
+	border-radius: 8px;
+	padding: 20px;
+	background-color: #ffffff;
+	-webkit-box-shadow: 0px 10px 26px -5px rgba(0,0,0,0.48);
+	-moz-box-shadow: 0px 10px 26px -5px rgba(0,0,0,0.48);
+	box-shadow: 0px 10px 26px -5px rgba(0,0,0,0.48);
+}
