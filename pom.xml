@@ -7,11 +7,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Aerolinea</name>
 
-  <properties>
-      <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
   <dependencies>
 
 	<!-- JAVAX-REST dependencies -->
@@ -26,8 +21,7 @@
 	<dependency>
 		<groupId>junit</groupId>
 		<artifactId>junit</artifactId>
-		<version>3.8.1</version>
-		<scope>test</scope>
+		<version>4.12</version>
 	</dependency>
 
 
@@ -171,9 +165,6 @@
           <configuration>
               <source>1.6</source>
               <target>1.6</target>
-              <compilerArguments>
-                  <endorseddirs>${endorsed.dir}</endorseddirs>
-              </compilerArguments>
           </configuration>
       </plugin>
       <plugin>

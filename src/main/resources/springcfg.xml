@@ -16,9 +16,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://mysql16353-aerolinea.jl.serv.net.mx:3306/Aerolinea"></property>
+			value="jdbc:mysql://localhost:3306/Aerolinea"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="RRXphe06173"></property>
+		<property name="password" value="root"></property>
 	</bean>
 
 	<bean id="sessionFactory"
