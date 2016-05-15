@@ -16,11 +16,11 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/Aerolinea"></property>
+			value="jdbc:mysql://mysql16353-aerolinea.jl.serv.net.mx:3306/Aerolinea"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="root"></property>
+		<property name="password" value="RRXphe06173"></property>
 	</bean>
-	
+
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
@@ -43,7 +43,7 @@
 			</props>
 		</property>
 	</bean>
-	
+
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 
@@ -51,7 +51,7 @@
 		<property name="dataSource" ref="dataSource"></property>
 
 	</bean>
-	
+
 	<bean id="paisDao" class="com.edu.udea.dao.impl.PaisDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -64,7 +64,7 @@
 	<bean id="tipodocumentoDao" class="com.edu.udea.dao.impl.TipoDocumentoDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
+
 	<bean id="socioBl" class="com.edu.udea.bl.impl.SocioBLImpl">
 		<property name="socioDao" ref="socioDao"></property>
 		<property name="clienteDao" ref="clienteDao"></property>
@@ -72,6 +72,3 @@
 	</bean>
 
 </beans>
-
-
-
