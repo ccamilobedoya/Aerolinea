@@ -21,37 +21,53 @@ public class SocioService {
 	@Autowired
 	SocioBL socioBl;
 	
-	/*
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response guardarSocio(String documento, String tipodocumento, String usuario, String contrasena) throws Excepcion {
-		
-		System.out.println("-- Servicio: Documento: " + documento);
-		System.out.println("-- Servicio: Usuariio: " + usuario);
-
-		socioBl.crearSocio(documento, tipodocumento, usuario, contrasena);
-		
-		return Response.status(Response.Status.CREATED)
-				.build();
-	}
-	*/
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/registrar")
 	public Response guardarSocio(Socio socio) throws Excepcion {
-		
-		System.out.println("-- Servicio: Documento: " + socio.getCliente().getDocumento());
-		System.out.println("-- Servicio: Usuario: " + socio.getUsuario());
 
-		socioBl.crearSocio(
+		Boolean creado = socioBl.crearSocio(
 				socio.getCliente().getDocumento(),
 				socio.getCliente().getTipoDocumento().getNombre(),
 				socio.getUsuario(),
 				socio.getContrasena());
 		
-		return Response.status(Response.Status.CREATED)
-				.build();
+		if (creado) {
+			return Response
+					.status(Response.Status.CREATED)
+					.build();
+		}
+		else {
+			return Response
+					.status(Response.Status.BAD_REQUEST)
+					.build();
+		}		
 	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/ingresar")
+	public Response ingresarSocio(Socio socio) throws Excepcion {
+		 
+		Boolean valido = socioBl.validarSocio(
+				socio.getUsuario(),
+				socio.getContrasena());
+		
+		
+		if (valido) {
+			return Response
+					.status(Response.Status.OK)
+					.build();
+		}
+		else {
+			return Response
+					.status(Response.Status.BAD_REQUEST)
+					.build();
+		}		
+	}
+	
+	
 }
 
 

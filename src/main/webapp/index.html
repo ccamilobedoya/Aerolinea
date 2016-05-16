@@ -29,7 +29,12 @@
 					<li><a href="#">Link</a></li>
         </ul>
 				<ul class="nav navbar-nav navbar-right">
-          <li><a href="#registro">Socios</a></li>
+					<li ng-hide="logueado"><a href="#registro">Registro</a></li>
+					<li ng-hide="logueado"><a href="#ingreso">Ingresar</a></li>
+					<!--
+					<li ng-show="logueado"><a href="">{{nombreUsuario}}</a></li>
+					<li ng-show="logueado"><a href="">Salir</a></li>
+					-->
 				</ul>
       </div>
     </div>
@@ -42,9 +47,11 @@
 	<!-- Lista de Scripts -->
 	<script type="text/javascript" src="resources/js/angular.js"></script>
 	<script type="text/javascript" src="resources/js/angular-route.js"></script>
+	<script type="text/javascript" src="resources/js/angular-cookies.js"></script>
 	<script type="text/javascript" src="resources/js/jquery.js"></script>
 	<script type="text/javascript" src="resources/js/bootstrap.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript" src="registro_socio/registrosocio.js"></script>
+	<script type="text/javascript" src="ingreso_socio/ingresosocio.js"></script>
 </body>
 </html>

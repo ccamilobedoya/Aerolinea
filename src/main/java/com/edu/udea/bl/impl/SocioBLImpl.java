@@ -18,36 +18,47 @@ public class SocioBLImpl implements SocioBL {
 	public Boolean crearSocio(String documento, String tipodocumento, String usuario, String contrasena)
 			throws Excepcion {
 
-		// Suponiendo que no hay campos vacios ni con caracteres raros (AQUI VAN VALIDACIONES)
+		Boolean hecho = false;
 		
-		if (documento.equals(null) || tipodocumento.equals(null) || usuario.equals(null) || contrasena.equals(null)){
-			throw new Excepcion("No hay datos suficientes para crear un nuevo socio", null);
+		if (documento.isEmpty() || tipodocumento.isEmpty() || usuario.isEmpty() || contrasena.isEmpty()){
+			//throw new Excepcion("No hay datos suficientes para crear un nuevo socio", null);
+			return hecho;
 		}
 		
-		Boolean hecho = false;
+		for (Socio sociotmp : socioDao.consultar()){
+			if (sociotmp.getUsuario() == usuario){
+				//throw new Excepcion("Ya existe un socio", null);
+				return hecho;
+			}
+		}
 		
 		Socio socio = new Socio();
 		socio.setUsuario(usuario);
 		socio.setContrasena(contrasena);
 		socio.setMillas(0.0);
 		
-		Cliente cliente = null;
-		cliente = clienteDao.consultar(documento, tipodocumentoDao.consultar(tipodocumento));
-		if (cliente.equals(null))
-			throw new Excepcion("No existe un cliente con esa identificacion que pueda ser socio", null);
-		socio.setCliente(cliente);
+		for (Cliente cliente : clienteDao.consultar()){
+			if (cliente.getDocumento() == documento && cliente.getTipoDocumento().getNombre() == tipodocumento) {
+				socio.setCliente(cliente);
+				hecho = socioDao.guardar(socio);
+				return hecho;
+			}
+		}		
 		
-		hecho = socioDao.guardar(socio);	
-		return hecho;
+		return hecho;	
 	}
 
 	public Boolean validarSocio(String usuario, String contrasena) throws Excepcion {
 		Boolean valido = false;
-		Socio socio = null;
 		
-		socio = socioDao.consultar(usuario);
-		if (socio.getContrasena().equals(contrasena))
-			valido = true;
+		for (Socio socio : socioDao.consultar()){
+			System.out.println("-- Compara: " + socio.getUsuario() + " " + usuario);
+			if (socio.getUsuario().equals(usuario) && socio.getContrasena().equals(contrasena) ){
+				System.out.println("---- Entro al IF");
+				valido = true;
+				return valido;
+			}
+		}
 		
 		return valido;
 	}
