@@ -23,7 +23,7 @@
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/Aerolinea"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="root"></property>
+		<property name="password" value=""></property>
 	</bean>
 
 	<bean id="sessionFactory"

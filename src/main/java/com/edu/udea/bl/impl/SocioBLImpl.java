@@ -22,12 +22,14 @@ public class SocioBLImpl implements SocioBL {
 		
 		if (documento.isEmpty() || tipodocumento.isEmpty() || usuario.isEmpty() || contrasena.isEmpty()){
 			//throw new Excepcion("No hay datos suficientes para crear un nuevo socio", null);
+			System.out.println("retorna 1");
 			return hecho;
 		}
 		
 		for (Socio sociotmp : socioDao.consultar()){
 			if (sociotmp.getUsuario() == usuario){
 				//throw new Excepcion("Ya existe un socio", null);
+				System.out.println("retorna 2");
 				return hecho;
 			}
 		}
@@ -38,13 +40,14 @@ public class SocioBLImpl implements SocioBL {
 		socio.setMillas(0.0);
 		
 		for (Cliente cliente : clienteDao.consultar()){
-			if (cliente.getDocumento() == documento && cliente.getTipoDocumento().getNombre() == tipodocumento) {
+			if (cliente.getDocumento().equals(documento) && cliente.getTipoDocumento().getNombre().equals(tipodocumento)){
+				System.out.println("------entro al if");
 				socio.setCliente(cliente);
 				hecho = socioDao.guardar(socio);
 				return hecho;
 			}
 		}		
-		
+		System.out.println("retorna 3");
 		return hecho;	
 	}
 
