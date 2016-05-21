@@ -7,7 +7,8 @@ var app = angular.module('app', [
 	 'ngCookies',
 	 //Agregar aca todos los controladores de las demas vistas aca
 	 'app.registrosocio',
-	 'app.ingresosocio'
+	 'app.ingresosocio',
+	 'app.principal'
 	 ])
 
 	 .config([ '$routeProvider',
@@ -15,5 +16,3 @@ var app = angular.module('app', [
 	       $routeProvider.otherwise('/');
 	     }
 	   ])
-
-	 
