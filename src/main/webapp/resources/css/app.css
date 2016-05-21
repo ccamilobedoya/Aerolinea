@@ -6,6 +6,10 @@ html,body {
   font-weight: 300;
 }
 
+.bg-verde {
+	background-color: #65947a;
+}
+
 .affix {
   padding:0px;
   -webkit-transition:padding 0.6s linear;
@@ -72,11 +76,23 @@ h1.titulo {
 }
 
 button.btn-verde {
-	background-color: #65947a;
-	color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, 0.3);
+	color: rgb(59, 59, 59);
+	text-shadow: #444 0 1px 1px;
 }
-
 button.btn-verde:hover {
 	background-color: #6da486;
+  color: rgb(255, 255, 255);
+}
+button.btn-verde:visited {
+	background-color: #6da486;
+  color: rgb(255, 255, 255);
+}
+button.btn-verde:active {
+	background-color: #609076;
+	color: rgb(255, 255, 255);
+}
+button.btn-verde:focus {
+	background-color: #609076;
 	color: rgb(255, 255, 255);
 }
