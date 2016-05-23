@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2016 05:54:15 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.edu.udea.dto.Aeropuerto" table="AEROPUERTO">
+        <id name="id_aeropuerto" type="java.lang.Integer">
+            <column name="id_aeropuerto" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="ciudad" class="com.edu.udea.dto.Ciudad" fetch="join">
+            <column name="id_ciudad" />
+        </many-to-one>
+        <property name="nombre" type="java.lang.String">
+            <column name="nombre" />
+        </property>
+        <property name="iata" type="java.lang.String">
+            <column name="iata" />
+        </property>
+        <property name="direccion" type="java.lang.String">
+            <column name="direccion" />
+        </property>
+        <property name="telefono" type="java.lang.String">
+            <column name="telefono" />
+        </property>
+        <property name="oficina" type="java.lang.String">
+            <column name="oficina" />
+        </property>
+    </class>
+</hibernate-mapping>

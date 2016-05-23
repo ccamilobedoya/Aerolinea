@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2016 05:54:15 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.edu.udea.dto.Avion" table="AVION">
+        <id name="id_avion" type="java.lang.Integer">
+            <column name="id_avion" />
+            <generator class="increment" />
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="nombre" />
+        </property>
+        <property name="capacidad" type="java.lang.Integer">
+            <column name="capacidad" />
+        </property>
+        <property name="filas" type="java.lang.Integer">
+            <column name="filas" />
+        </property>
+        <property name="columnas" type="java.lang.Integer">
+            <column name="columnas" />
+        </property>
+    </class>
+</hibernate-mapping>

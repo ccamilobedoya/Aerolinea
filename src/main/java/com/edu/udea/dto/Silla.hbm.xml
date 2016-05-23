@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2016 05:54:15 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.edu.udea.dto.Silla" table="SILLA">
+        <id name="id_silla" type="java.lang.Integer">
+            <column name="id_silla" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="vuelo" class="com.edu.udea.dto.Vuelo" fetch="join">
+            <column name="id_vuelo" />
+        </many-to-one>
+        <many-to-one name="pasaje" class="com.edu.udea.dto.Pasaje" fetch="join">
+            <column name="id_pasaje" />
+        </many-to-one>
+        <many-to-one name="tipoclase" class="com.edu.udea.dto.TipoClase" fetch="join">
+            <column name="id_tipoclase" />
+        </many-to-one>
+        <property name="fila" type="java.lang.Integer">
+            <column name="fila" />
+        </property>
+        <property name="columna" type="java.lang.Integer">
+            <column name="columna" />
+        </property>
+    </class>
+</hibernate-mapping>

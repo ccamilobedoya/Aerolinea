@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 10/05/2016 09:52:02 PM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 23/05/2016 05:54:15 PM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="com.edu.udea.dto.TipoDocumento" table="TIPODOCUMENTO">
-        <id name="id_tipodocumento" type="java.lang.Integer">
-            <column name="id_tipodocumento" />
+    <class name="com.edu.udea.dto.TipoClase" table="TIPOCLASE">
+        <id name="id_tipoclase" type="java.lang.Integer">
+            <column name="id_tipoclase" />
             <generator class="increment" />
         </id>
-        <many-to-one name="pais" class="com.edu.udea.dto.Pais" fetch="join">
-            <column name="id_pais" />
-        </many-to-one>
         <property name="nombre" type="java.lang.String">
             <column name="nombre" />
+        </property>
+        <property name="multiplicadorprecio" type="java.lang.Double">
+            <column name="multiplicadorprecio" />
         </property>
     </class>
 </hibernate-mapping>
