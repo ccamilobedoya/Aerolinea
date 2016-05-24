@@ -1,6 +1,7 @@
 package com.edu.udea.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Vuelo implements Serializable{
 
@@ -16,6 +17,21 @@ public class Vuelo implements Serializable{
 	private Aeropuerto desde;
 	private Aeropuerto hasta;
 	private Double millas;
+	private Date salida;
+	private Date llegada;
+	
+	public Date getSalida() {
+		return salida;
+	}
+	public void setSalida(Date salida) {
+		this.salida = salida;
+	}
+	public Date getLlegada() {
+		return llegada;
+	}
+	public void setLlegada(Date llegada) {
+		this.llegada = llegada;
+	}
 	
 	public Integer getId_vuelo() {
 		return id_vuelo;

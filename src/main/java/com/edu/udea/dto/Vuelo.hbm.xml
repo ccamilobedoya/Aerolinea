@@ -26,5 +26,11 @@
         <property name="millas" type="java.lang.Double">
             <column name="millas" />
         </property>
+        <property name="salida" type="java.util.Date">
+            <column name="salida" />
+        </property>
+        <property name="llegada" type="java.util.Date">
+            <column name="llegada" />
+        </property>
     </class>
 </hibernate-mapping>
