@@ -99,7 +99,7 @@ DROP TABLE IF EXISTS `Aerolinea`.`CLIENTE` ;
 CREATE TABLE IF NOT EXISTS `Aerolinea`.`CLIENTE` (
   `id_cliente` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
-  `documeto` VARCHAR(45) NOT NULL,
+  `documento` VARCHAR(45) NOT NULL,
   `tipodocumento` INT NOT NULL,
   `correo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_cliente`),
@@ -335,9 +335,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `Aerolinea`;
-INSERT INTO `Aerolinea`.`CLIENTE` (`id_cliente`, `nombre`, `documeto`, `tipodocumento`, `correo`) VALUES (1, 'Ente Del Socorro', '1025688556', 1, 'correo@correo.com');
-INSERT INTO `Aerolinea`.`CLIENTE` (`id_cliente`, `nombre`, `documeto`, `tipodocumento`, `correo`) VALUES (2, 'Tiago', '1665699988', 1, 'correo2@algo.com');
-INSERT INTO `Aerolinea`.`CLIENTE` (`id_cliente`, `nombre`, `documeto`, `tipodocumento`, `correo`) VALUES (3, 'Mr. McBuildCraft', '9998755510', 2, 'mrmcbc@op.com');
+INSERT INTO `Aerolinea`.`CLIENTE` (`id_cliente`, `nombre`, `documento`, `tipodocumento`, `correo`) VALUES (1, 'Ente Del Socorro', '1025688556', 1, 'correo@correo.com');
+INSERT INTO `Aerolinea`.`CLIENTE` (`id_cliente`, `nombre`, `documento`, `tipodocumento`, `correo`) VALUES (2, 'Tiago', '1665699988', 1, 'correo2@algo.com');
+INSERT INTO `Aerolinea`.`CLIENTE` (`id_cliente`, `nombre`, `documento`, `tipodocumento`, `correo`) VALUES (3, 'Mr. McBuildCraft', '9998755510', 2, 'mrmcbc@op.com');
 
 COMMIT;
 
