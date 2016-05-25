@@ -10,7 +10,7 @@ angular.module('app.ingresosocio', ['ngRoute', 'ngCookies'])
     }
   ])
 
-.controller('ingresoSocioCtrl', function($scope, $http, $cookies){
+.controller('ingresoSocioCtrl', function($scope, $http, $cookies, $location, $timeout, $rootScope){
   $scope.mensaje = [alerta = '', titulo = '', texto = ''];
   $scope.isCollapsed = true;
   $scope.usuario = '';
@@ -28,9 +28,15 @@ angular.module('app.ingresosocio', ['ngRoute', 'ngCookies'])
         function successCallback (response) {
           $scope.mensaje.alerta = 'alert-success';
           $scope.mensaje.titulo = '¡Bienvenido! ';
-          $scope.mensaje.texto = '';
+          $scope.mensaje.texto = 'Seras redireccionado en un momento.';
           $scope.isCollapsed = false;
           $cookies.put ('user', $scope.usuario);
+          $timeout(function () {
+            $rootScope.logueado = true;
+            $rootScope.nombreUsuario = $cookies.get('user');
+            $location.path('/');
+          }, 1000);
+
         },
         function errorCallback (response) {
           $scope.mensaje.alerta = 'alert-warning';

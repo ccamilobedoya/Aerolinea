@@ -16,3 +16,19 @@ var app = angular.module('app', [
 	       $routeProvider.otherwise('/');
 	     }
 	   ])
+
+app.controller('appCtrl', ['$scope', '$cookies', '$rootScope', function($scope, $cookies, $rootScope) {
+	$rootScope.logueado = false;
+	$rootScope.nombreUsuario = $cookies.get('user');
+	if ($rootScope.nombreUsuario == null){
+		$rootScope.logueado = false;
+	}
+	else {
+		$rootScope.logueado = true;
+	}
+
+	$scope.salir = function() {
+		$cookies.remove('user');
+		$rootScope.logueado = false;
+	};
+}]);

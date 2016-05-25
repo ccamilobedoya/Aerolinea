@@ -18,7 +18,6 @@ angular.module('app.principal', ['ngRoute'])
 function parallax(){
     var jumboHeight = $('.header-gigante').outerHeight();
     var scrolled = $(window).scrollTop();
-    console.log(scrolled);
     $('.header-bg').css('height', (jumboHeight-(scrolled)) + 'px');
 }
 
