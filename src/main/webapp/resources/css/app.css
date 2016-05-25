@@ -12,20 +12,51 @@ html,body {
 
 .affix {
   padding:0px;
-  -webkit-transition:padding 0.6s linear;
-  -moz-transition:padding 0.6s linear;
-  -o-transition:padding 0.6s linear;
-  transition:padding 0.6s linear;
-
+  -webkit-transition:padding 0.5s linear, background-color 0.5s linear, color 0.5s linear;
+  -moz-transition:padding 0.5s linear, background-color 0.5s linear, color 0.5s linear;
+  -o-transition:padding 0.5s linear, background-color 0.5s linear, color 0.5s linear;
+  transition:padding 0.5s linear, background-color 0.5s linear, color 0.5s linear;
+	background: rgba(26, 26, 26, 0.93);
 }
 
 .affix-top {
   padding-top:15px;
   padding-bottom:15px;
-  -webkit-transition:padding 0.15s ease-in;
-  -moz-transition:padding 0.15s ease-in;
-  -o-transition:padding 0.15s ease-in;
-  transition:padding 0.15s ease-in;
+  -webkit-transition:padding 0.15s ease-in, background-color 0.15s ease-in, color 0.15s ease-in;
+  -moz-transition:padding 0.15s ease-in, background-color 0.15s ease-in, color 0.15s ease-in;
+  -o-transition:padding 0.15s ease-in, background-color 0.15s ease-in, color 0.15s ease-in;
+  transition:padding 0.15s ease-in, background-color 0.15s ease-in, color 0.15s ease-in;
+	background-color: transparent;
+}
+
+/***** Color de los items de la navbar pero cuando estan en top *****/
+.affix-top > .container > .navbar-collapse > ul > li > a{
+	color: rgb(26, 26, 26);
+}
+.affix-top > .container > .navbar-collapse > ul > li > a:hover{
+	color: #65947a;
+}
+
+.navbar {
+  border-color: transparent;
+}
+
+.navbar-brand {
+	color: #65947a !important;
+	font-weight: 400;
+}
+
+/**** Solo cuando se hace collapse (Al ser pantalla pequeña) ***/
+@media only screen and (max-width: 766px) {
+	.collapsing, .in, .affix-top, .affix {
+		background-color: #2a2a2a;
+	}
+	.collapsing ul li a, .in ul li a {
+		color: #e6e6e6 !important;
+	}
+	.collapsing ul li a:hover, .in ul li a:hover {
+		color: #65947a !important;
+	}
 }
 
 .panel-registro {
