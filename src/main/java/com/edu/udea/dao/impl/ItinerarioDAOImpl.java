@@ -9,11 +9,11 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import com.edu.udea.dao.ItinearioDAO;
+import com.edu.udea.dao.ItinerarioDAO;
 import com.edu.udea.dto.Itinerario;
 import com.edu.udea.excepcion.Excepcion;
 
-public class ItinerarioDAOImpl extends HibernateDaoSupport implements ItinearioDAO{
+public class ItinerarioDAOImpl extends HibernateDaoSupport implements ItinerarioDAO{
 
 	@Override
 	public List<Itinerario> consultar() throws Excepcion {

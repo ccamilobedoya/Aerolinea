@@ -36,6 +36,15 @@
 				<value>com/edu/udea/dto/Cliente.hbm.xml</value>
 				<value>com/edu/udea/dto/Socio.hbm.xml</value>
 				<value>com/edu/udea/dto/TipoDocumento.hbm.xml</value>
+				<value>com/edu/udea/dto/Aeropuerto.hbm.xml</value>
+				<value>com/edu/udea/dto/Avion.hbm.xml</value>
+				<value>com/edu/udea/dto/Ciudad.hbm.xml</value>
+				<value>com/edu/udea/dto/Itinerario.hbm.xml</value>
+				<value>com/edu/udea/dto/Pasaje.hbm.xml</value>
+				<value>com/edu/udea/dto/Silla.hbm.xml</value>
+				<value>com/edu/udea/dto/TipoClase.hbm.xml</value>
+				<value>com/edu/udea/dto/Vuelo.hbm.xml</value>
+				
 
 			</list>
 		</property>
@@ -69,11 +78,43 @@
 	<bean id="tipodocumentoDao" class="com.edu.udea.dao.impl.TipoDocumentoDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
+	<bean id="aeropuertoDao" class="com.edu.udea.dao.impl.AeropuertoDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="avionDao" class="com.edu.udea.dao.impl.AvionDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="ciudadDao" class="com.edu.udea.dao.impl.CiudadDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="itinerarioDao" class="com.edu.udea.dao.impl.ItinerarioDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="pasajeDao" class="com.edu.udea.dao.impl.PasajeDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="sillaDao" class="com.edu.udea.dao.impl.SillaDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="tipoclaseDao" class="com.edu.udea.dao.impl.TipoClaseDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="vueloDao" class="com.edu.udea.dao.impl.VueloDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
 	<bean id="socioBl" class="com.edu.udea.bl.impl.SocioBLImpl">
 		<property name="socioDao" ref="socioDao"></property>
 		<property name="clienteDao" ref="clienteDao"></property>
 		<property name="tipodocumentoDao" ref="tipodocumentoDao"></property>
+	</bean>
+	<bean id="busquedavuelos" class="com.edu.udea.bl.impl.BusquedaVuelosImpl">
+		<property name="vueloDao" ref="vueloDao"></property>
+		<property name="aeropuertoDao" ref="aeropuertoDao"></property>
+		<property name="ciudadDao" ref="ciudadDao"></property>
+		<property name="paisDao" ref="paisDao"></property>
+		<property name="itinerarioDao" ref="itinerarioDao"></property>
 	</bean>
 
 </beans>

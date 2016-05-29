@@ -40,7 +40,7 @@ public class VueloDAOImpl extends HibernateDaoSupport implements VueloDAO{
 	public List<Vuelo> consultar(Aeropuerto desde, Aeropuerto hasta, Date salida) throws Excepcion {
 		List<Vuelo> vueloes = new ArrayList<Vuelo>();
 		Session session = null;
-		
+				
 		try {
 			session = getSession();
 			Criteria criteria = session.createCriteria(Vuelo.class)

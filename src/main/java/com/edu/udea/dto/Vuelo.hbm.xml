@@ -8,19 +8,19 @@
             <column name="id_vuelo" />
             <generator class="increment" />
         </id>
-        <many-to-one name="avion" class="com.edu.udea.dto.Avion" fetch="join">
+        <many-to-one name="avion" class="com.edu.udea.dto.Avion" fetch="join" lazy="false">
             <column name="id_avion" />
         </many-to-one>
-        <many-to-one name="itinerario" class="com.edu.udea.dto.Itinerario" fetch="join">
+        <many-to-one name="itinerario" class="com.edu.udea.dto.Itinerario" fetch="join" lazy="false">
             <column name="id_itinerario" />
         </many-to-one>
         <property name="precio" type="java.lang.Double">
             <column name="precio" />
         </property>
-        <many-to-one name="desde" class="com.edu.udea.dto.Aeropuerto" fetch="join">
+        <many-to-one name="desde" class="com.edu.udea.dto.Aeropuerto" fetch="join" lazy="false">
             <column name="desde" />
         </many-to-one>
-        <many-to-one name="hasta" class="com.edu.udea.dto.Aeropuerto" fetch="join">
+        <many-to-one name="hasta" class="com.edu.udea.dto.Aeropuerto" fetch="join" lazy="false"> 
             <column name="hasta" />
         </many-to-one>
         <property name="millas" type="java.lang.Double">

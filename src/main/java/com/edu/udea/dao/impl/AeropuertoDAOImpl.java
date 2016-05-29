@@ -36,7 +36,7 @@ public class AeropuertoDAOImpl extends HibernateDaoSupport implements Aeropuerto
 	public Aeropuerto consultar(String IATA) throws Excepcion {
 		Aeropuerto aeropuerto = null;
 		Session session = null;
-		
+
 		try{
 			session = getSession();
 			Criteria criteria = session.createCriteria(Aeropuerto.class).add
@@ -46,7 +46,7 @@ public class AeropuertoDAOImpl extends HibernateDaoSupport implements Aeropuerto
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion AeropuertoDAO - Consultar", e);
 		}
-		
+				
 		return aeropuerto;
 	}
 
