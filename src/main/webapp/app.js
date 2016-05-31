@@ -8,7 +8,8 @@ var app = angular.module('app', [
 	 //Agregar aca todos los controladores de las demas vistas aca
 	 'app.registrosocio',
 	 'app.ingresosocio',
-	 'app.principal'
+	 'app.principal',
+	 'app.buscarvuelos'
 	 ])
 
 	 .config([ '$routeProvider',
