@@ -32,7 +32,12 @@ angular.module('app.buscarvuelos', ['ngRoute'])
           method: 'GET',
           url: urlCompleta
         }).then(function successCallback(response) {
-          $scope.vuelos = response;
+          $scope.vuelos = response.data;
+          //for (vuelo in $scope.vuelos) {
+        	//  vuelo.salida = moment(vuelo.salida).format('DD-MM-YYYY / HH:mm');
+          //}
+          $scope.vuelos.salida = moment($scope.vuelos.salida).format('DD-MM-YYYY / HH:mm');
+          console.log($scope.vuelos)
         }, function errorCallback(response) {
 
         });

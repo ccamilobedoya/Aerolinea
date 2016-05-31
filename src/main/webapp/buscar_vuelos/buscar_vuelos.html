@@ -31,14 +31,24 @@
       <div class="row">
         <div class="col-sm-12">
           <button ng-click="buscarVuelos()" class="btn btn-default btn-verde btn-block" type="button" name="button">Buscar Vuelos</button>
+          <br>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-9" >
-      <div class="row" >
+    <div class="col-sm-0 col-md-1">
+    </div>
+    <div class="col-sm-12 col-md-8" >
+      <div class="row" ng-repeat="vuelo in vuelos">
         <div class="col-sm-12">
-
+			<div class="panel-registro">
+				<p>Avion: <strong>{{vuelo.avion.nombre}}</strong></p>
+				<p>Precio: <strong>${{vuelo.precio}}</strong></p>
+				<p>Fecha Salida: <strong>{{vuelo.salida}}</strong></p>
+				<p>Fecha Llegada: <strong>{{vuelo.llegada}}</strong></p>
+				<p>Millas acumulables: <strong>{{vuelo.millas}}</strong></p>
+			</div>
         </div>
+        <br>
       </div>
     </div>
   </div>
