@@ -6,8 +6,8 @@
       <div class="row">
         <div class="col-sm-12">
           <label for="desde">Lugar de Origen:</label>
-          <select class="form-control" id="desde">
-            <option></option>
+          <select ng-model="desde" class="form-control" id="desde">
+            <option ng-repeat="aeros in listaAeropuertos">{{aeros}}</option>
           </select>
         </div>
       </div>
@@ -15,8 +15,8 @@
       <div class="row">
         <div class="col-sm-12">
           <label for="hasta">Lugar de Destino:</label>
-          <select class="form-control" id="hasta">
-            <option></option>
+          <select ng-model="hasta" class="form-control" id="hasta">
+            <option ng-repeat="aeros in listaAeropuertos">{{aeros}}</option>
           </select>
         </div>
       </div>
@@ -30,12 +30,12 @@
       <br>
       <div class="row">
         <div class="col-sm-12">
-          <button class="btn btn-default btn-verde btn-block" type="button" name="button">Buscar Vuelos</button>
+          <button ng-click="buscarVuelos()" class="btn btn-default btn-verde btn-block" type="button" name="button">Buscar Vuelos</button>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-9" ng-model="">
-      <div class="row" ng-repeat="">
+    <div class="col-sm-12 col-md-9" >
+      <div class="row" >
         <div class="col-sm-12">
 
         </div>
