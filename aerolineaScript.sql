@@ -449,9 +449,9 @@ INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipocl
 INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (21, 8, NULL, 2, 1, 1);
 INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (22, 8, NULL, 2, 1, 2);
 INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (23, 8, NULL, 2, 1, 3);
-INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (21, 9, NULL, 2, 1, 1);
-INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (22, 9, NULL, 2, 1, 2);
-INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (23, 9, NULL, 2, 1, 3);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (24, 9, NULL, 2, 1, 1);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (25, 9, NULL, 2, 1, 2);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (26, 9, NULL, 2, 1, 3);
 
 COMMIT;
 
