@@ -350,7 +350,13 @@ USE `Aerolinea`;
 INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (1, 5000000);
 INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (2, 400500);
 INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (3, 605000);
-
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (4, 615000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (5, 415000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (6, 515000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (7, 435000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (8, 255000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (9, 345000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (10, 415000);
 COMMIT;
 
 
@@ -375,7 +381,11 @@ INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `preci
 INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (2, 2, 1, 2000000, 2, 3, 180, '2016-06-27 08:00:00', '2016-06-27 23:40:00');
 INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (3, 3, 2, 400000, 3, 1, 200, '2016-07-02 15:20:00', '2016-07-3 10:20:00');
 INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (4, 1, 3, 200000, 2, 1, 50, '2016-07-04 15:20:00', '2016-07-04 19:20:00');
-
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (5, 2, 9, 300000, 3, 2, 20, '2016-09-25 08:20:00', '2016-09-25 13:20:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (6, 3, 5, 310000, 3, 1, 32, '2016-09-25 05:40:00', '2016-09-25 12:00:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (7, 1, 4, 280000, 2, 1, 28, '2016-12-25 06:40:00', '2016-12-25 07:30:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (8, 2, 4, 210000, 1, 3, 40, '2016-12-25 08:00:00', '2016-12-25 12:00:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (9, 2, 8, 210000, 1, 3, 40, '2016-18-25 05:40:00', '2016-12-25 07:40:00');
 COMMIT;
 
 
@@ -428,6 +438,20 @@ INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipocl
 INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (10, 4, NULL, 2, 1, 1);
 INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (11, 4, NULL, 2, 1, 2);
 INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (12, 4, NULL, 2, 1, 3);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (13, 5, NULL, 1, 1, 2);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (14, 5, NULL, 1, 1, 3);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (15, 5, NULL, 2, 2, 1);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (16, 6, NULL, 3, 1, 1);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (17, 6, NULL, 3, 1, 2);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (18, 7, NULL, 1, 1, 1);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (19, 7, NULL, 1, 1, 2);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (20, 7, NULL, 1, 2, 1);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (21, 8, NULL, 2, 1, 1);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (22, 8, NULL, 2, 1, 2);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (23, 8, NULL, 2, 1, 3);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (21, 9, NULL, 2, 1, 1);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (22, 9, NULL, 2, 1, 2);
+INSERT INTO `Aerolinea`.`SILLA` (`id_silla`, `id_vuelo`, `id_pasaje`, `id_tipoclase`, `fila`, `columna`) VALUES (23, 9, NULL, 2, 1, 3);
 
 COMMIT;
 
