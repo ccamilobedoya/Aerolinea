@@ -127,6 +127,13 @@ html,body {
   z-index: -1;
 }
 
+.header-footer {
+	position: relative;
+	left: 50%;
+  top: 95vh;
+	width: 5%;
+}
+
 @media only screen and (max-height: 550px){
 	.header-gigante {
 		height: 550px;
