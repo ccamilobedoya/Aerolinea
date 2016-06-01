@@ -33,10 +33,10 @@ angular.module('app.buscarvuelos', ['ngRoute'])
           url: urlCompleta
         }).then(function successCallback(response) {
           $scope.vuelos = response.data;
-          //for (vuelo in $scope.vuelos) {
-        	//  vuelo.salida = moment(vuelo.salida).format('DD-MM-YYYY / HH:mm');
-          //}
-          $scope.vuelos.salida = moment($scope.vuelos.salida).format('DD-MM-YYYY / HH:mm');
+          for (var i = 0; i < $scope.vuelos.length; i++){
+            $scope.vuelos[i].salida = moment($scope.vuelos[i].salida).format('DD-MM-YYYY / HH:mm');
+            $scope.vuelos[i].llegada = moment($scope.vuelos[i].llegada).format('DD-MM-YYYY / HH:mm');
+          }
           console.log($scope.vuelos)
         }, function errorCallback(response) {
 

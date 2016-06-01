@@ -88,6 +88,15 @@ html,body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82a78e', endColorstr='#5f8c6c', GradientType=0 );
 }
 
+.titulo-busqueda {
+	padding: 5px;
+	padding-bottom: 13px;
+	margin-bottom: -10px;
+	top: -35px;
+	width: 60%;
+	right: -35%;
+}
+
 .center-header {
 	color: #3b3b3b;
 	text-align: center;
