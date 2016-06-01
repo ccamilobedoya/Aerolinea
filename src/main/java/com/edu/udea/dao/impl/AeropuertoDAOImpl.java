@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -22,7 +23,9 @@ public class AeropuertoDAOImpl extends HibernateDaoSupport implements Aeropuerto
 		
 		try {
 			session = getSession();
-			Criteria criteria = session.createCriteria(Aeropuerto.class);
+			Criteria criteria = session.createCriteria(Aeropuerto.class)
+					.createAlias("ciudad", "c")
+					.addOrder(Order.asc("c.nombre"));
 			aeropuertoes = criteria.list();
 		}
 		catch (HibernateException e){

@@ -12,27 +12,49 @@ angular.module('app.buscarvuelos', ['ngRoute'])
 
   .controller('buscarVuelosCtrl',
     function($scope, $http){
-      $scope.listaAeropuertos = ['BOG', 'OLH', 'JFK'];
+      $scope.listaAeropuertos = [];
+
+      // Pide la lista de aeropuertos
+      $http({
+        method: 'GET',
+        url: 'http://localhost:8080/Aerolinea/rest/aeropuertos/'
+      }).then(function successCallback(response){
+        $scope.aeropuertos = response.data;
+        // Formatea la lista de aeropuertos
+        for (var i = 0; i<$scope.aeropuertos.length; i++){
+          $scope.listaAeropuertos[i] =
+            '[' + $scope.aeropuertos[i].iata + ']  ' +
+            $scope.aeropuertos[i].nombre + '.   ' +
+            $scope.aeropuertos[i].ciudad.nombre + ', ' +
+            $scope.aeropuertos[i].ciudad.pais.nombre + '.';
+        }
+      }, function errorCallback(response){
+
+      });
+
 
       $scope.desde;
       $scope.hasta;
+      // Crea una fecha inicial (actual) y le da formato
       $scope.datepicker =
         moment().format('YYYY-MM-DD') + "T" +
         moment().hours() + ":" +
         moment().minutes() + ":00Z";
 
+      // Pide los vuelos con los datos proporcionados
       $scope.vuelos = [];
       $scope.buscarVuelos = function() {
         var urlCompleta = 'http://localhost:8080/Aerolinea/rest/vuelos/busqueda' +
           '?' +
-          'desde=' + $scope.desde + '&' +
-          'hasta=' + $scope.hasta + '&' +
+          'desde=' + $scope.desde.substr(1,3) + '&' +
+          'hasta=' + $scope.hasta.substr(1,3) + '&' +
           'salida=' + $scope.datepicker;
         $http({
           method: 'GET',
           url: urlCompleta
         }).then(function successCallback(response) {
           $scope.vuelos = response.data;
+          // Le da formato a las fechas que se devuelven
           for (var i = 0; i < $scope.vuelos.length; i++){
             $scope.vuelos[i].salida = moment($scope.vuelos[i].salida).format('DD-MM-YYYY / HH:mm');
             $scope.vuelos[i].llegada = moment($scope.vuelos[i].llegada).format('DD-MM-YYYY / HH:mm');
