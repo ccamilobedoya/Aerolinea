@@ -11,7 +11,8 @@ angular.module('app.buscarvuelos', ['ngRoute'])
   ])
 
   .controller('buscarVuelosCtrl',
-    function($scope, $http){
+    function($scope, $http, $location){
+	  $scope.isCollapsed = true;
       $scope.listaAeropuertos = [];
 
       // Pide la lista de aeropuertos
@@ -54,6 +55,7 @@ angular.module('app.buscarvuelos', ['ngRoute'])
           url: urlCompleta
         }).then(function successCallback(response) {
           $scope.vuelos = response.data;
+          $scope.isCollapsed = false;
           // Le da formato a las fechas que se devuelven
           for (var i = 0; i < $scope.vuelos.length; i++){
             $scope.vuelos[i].salida = moment($scope.vuelos[i].salida).format('DD-MM-YYYY / HH:mm');
@@ -65,6 +67,10 @@ angular.module('app.buscarvuelos', ['ngRoute'])
         });
       };
 
+      $scope.goComprar = function(id) {
+    	  $location.path('/comprar/' + id);  
+      };
+      
       // Crea el date picker
       $('input[name="datepicker"]').daterangepicker({
           "singleDatePicker": true,

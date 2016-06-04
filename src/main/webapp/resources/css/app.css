@@ -191,6 +191,10 @@ h2.titulo {
 	color: rgb(255, 255, 255);
 }
 
+.clickable {
+	cursor: pointer;
+}
+
 /*
 .blur-10 {
 	-webkit-filter: blur(10px);

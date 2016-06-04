@@ -32,6 +32,10 @@
         <div class="col-xs-12">
           <button ng-click="buscarVuelos()" class="btn btn-default btn-verde btn-block" type="button" name="button">Buscar Vuelos</button>
           <br>
+          <div class="alert alert-info alert-dismissible {{alerta}}" ng-hide="isCollapsed" role="alert">
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			  <strong>¿Quieres comprar o reservar un tiquete?</strong> Solo haz click en la oferta que mas se adapte a lo que deseas.
+			</div>
           <br>
         </div>
       </div>
@@ -41,7 +45,7 @@
     <div class="col-xs-12 col-md-7" >
       <div class="row" ng-repeat="vuelo in vuelos">
         <div class="col-xs-12">
-    			<div class="panel-registro">
+    			<div class="panel-registro clickable" ng-click="goComprar(vuelo.id_vuelo)">
             <div class="titulo-relativo titulo-busqueda">
               <h2 class="titulo">$ {{vuelo.precio}}</h2>
             </div>
