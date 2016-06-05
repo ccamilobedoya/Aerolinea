@@ -60,4 +60,20 @@ public class BusquedaVuelosService {
 				.build();
 	}
 	
+	@GET
+	@Path("/busquedaunica")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Transactional
+	public Response buscarVuelo (
+			@QueryParam("id") Integer id) throws Excepcion {
+		
+		Vuelo vuelo = new Vuelo();
+		vuelo = busquedavuelos.buscarVuelo(id);
+		
+		return Response
+				.ok()
+				.entity(vuelo)
+				.build();
+	}
+	
 }

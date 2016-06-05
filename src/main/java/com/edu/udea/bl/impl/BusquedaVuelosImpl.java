@@ -44,6 +44,16 @@ public class BusquedaVuelosImpl implements BusquedaVuelos{
 		return null;
 	}
 
+	@Override
+	public Vuelo buscarVuelo(Integer id) throws Excepcion {
+		Vuelo vuelo = new Vuelo();
+		if (id == null) {
+			return vuelo;
+		}
+		vuelo = vueloDao.consultar(id);
+		return vuelo;
+	}
+	
 	public void setVueloDao(VueloDAO vueloDao) {
 		this.vueloDao = vueloDao;
 	}
@@ -63,6 +73,8 @@ public class BusquedaVuelosImpl implements BusquedaVuelos{
 	public void setItinerarioDao(ItinerarioDAO itinerarioDao) {
 		this.itinerarioDao = itinerarioDao;
 	}
+
+	
 	
 	
 

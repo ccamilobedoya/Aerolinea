@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="resources/css/bootstrap.css">
 	<link rel="stylesheet" href="resources/css/daterangepicker.css">
 	<link rel="stylesheet" href="resources/css/app.css">
+	<link rel="stylesheet" href="resources/css/ring.css">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="app">
@@ -42,6 +43,16 @@
     </div>
   </div><!-- /.navbar -->
 
+	<div class="espaciado-barra" ng-show="isLoading">
+		<br>
+		<br>
+		<center>
+			<div class="uil-ring-css" style="transform:scale(0.84);">
+				<div class=""></div>
+			</div>
+		</center>
+	</div>
+
 	<!-- Visor para el resto de las paginas -->
 	<div ng-view></div>
 
@@ -61,6 +72,6 @@
 	<script type="text/javascript" src="principal/principal.js"></script>
 	<script type="text/javascript" src="buscar_vuelos/buscar_vuelos.js"></script>
 	<script type="text/javascript" src="comprar/comprar.js"></script>
-	
+
 </body>
 </html>

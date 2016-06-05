@@ -10,5 +10,6 @@ public interface BusquedaVuelos {
 
 	public List<Vuelo> listarVuelos(String desdeIata, String hastaIata, Date salida) throws Excepcion;
 	public List<Vuelo> listarVuelos(Integer id_itinerario) throws Excepcion;
+	public Vuelo buscarVuelo(Integer id) throws Excepcion;
 	
 }

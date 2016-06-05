@@ -34,3 +34,19 @@ app.controller('appCtrl', ['$scope', '$cookies', '$rootScope', function($scope, 
 		$rootScope.logueado = false;
 	};
 }]);
+
+// Carga entre views
+app.run(['$rootScope',function($rootScope){
+
+    $rootScope.isLoading = false;
+    $rootScope.$on('$routeChangeStart', function() {
+        $rootScope.isLoading = true;
+    });
+    $rootScope.$on('$routeChangeSuccess', function() {
+        $rootScope.isLoading = false;
+    });
+    $rootScope.$on('$routeChangeError', function() {
+
+    });
+
+}]);
