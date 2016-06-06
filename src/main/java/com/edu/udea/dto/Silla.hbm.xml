@@ -11,7 +11,7 @@
         <many-to-one name="vuelo" class="com.edu.udea.dto.Vuelo" fetch="join">
             <column name="id_vuelo" />
         </many-to-one>
-        <many-to-one name="pasaje" class="com.edu.udea.dto.Pasaje" fetch="join">
+        <many-to-one name="pasaje" class="com.edu.udea.dto.Pasaje" fetch="select" lazy="no-proxy"  not-null="false">
             <column name="id_pasaje" />
         </many-to-one>
         <many-to-one name="tipoclase" class="com.edu.udea.dto.TipoClase" fetch="join">

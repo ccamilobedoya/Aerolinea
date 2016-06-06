@@ -2,6 +2,10 @@ package com.edu.udea.dto;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+// PARA EL ERROR DE LAZY CON HIBERNATE !!
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Pasaje implements Serializable{
 
 	/**

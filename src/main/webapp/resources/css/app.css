@@ -1,6 +1,6 @@
 html,body {
 	height:100%;
-  padding-top:10px;
+  padding-top:8px;
 	/* background-color: #65947a; */
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
@@ -97,6 +97,15 @@ html,body {
 	right: -35%;
 }
 
+.titulo-datos {
+	padding: 5px;
+	padding-bottom: 13px;
+	margin-bottom: -10px;
+	top: -35px;
+	width: 60%;
+	right: -20%;
+}
+
 .center-header {
 	color: #3b3b3b;
 	text-align: center;
@@ -145,6 +154,24 @@ html,body {
 
 .glyphicon {
 	color: rgb(60, 60, 60);
+}
+
+.pf {
+	color: rgb(60, 60, 60);
+	font-size: 24px;
+	-webkit-transition: color 0.1s ease-in;
+	-moz-transition: color 0.1s ease-in;
+	-o-transition: color 0.1s ease-in;
+	transition: color 0.1s ease-in;
+}
+
+.pf:hover {
+	color: #65947a;
+	font-size: 24px;
+	-webkit-transition: color 0.1s ease-in;
+	-moz-transition: color 0.1s ease-in;
+	-o-transition: color 0.1s ease-in;
+	transition: color 0.1s ease-in;
 }
 
 h1.titulo {

@@ -11,9 +11,10 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
   ])
 
 .controller('comprarCtrl', function($scope, $http, $cookies, $location, $routeParams){
-  
+
   // Busca los datos del vuelo de acuerdo a la url
   $scope.vuelo = '';
+  $scope.sillas = [];
   var urlCompleta = 'http://localhost:8080/Aerolinea/rest/vuelos/busquedaunica' +
     '?' + 'id=' + $routeParams.vueloid;
   $http({
@@ -21,10 +22,24 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
     url: urlCompleta
   }).then(function successCallback(response) {
     $scope.vuelo = response.data;
+    $scope.vuelo.salida = moment($scope.vuelo.salida).format('DD-MM-YYYY / HH:mm');
+    $scope.vuelo.llegada = moment($scope.vuelo.llegada).format('DD-MM-YYYY / HH:mm');
     console.log($scope.vuelo);
-  }, function errorCallback(response) {
 
-  });
+    // Busca los datos de las sillas con respecto al vuelo anterior
+    $http({
+      method: 'GET',
+      url: 'http://localhost:8080/Aerolinea/rest/sillas/listar'
+        + '?vuelo=' + $scope.vuelo.id_vuelo
+    }).then(function successCallback(response) {
+      $scope.sillas = response.data;
+      console.log($scope.sillas);
+    }, function errorCallback(response) {});
+
+  }, function errorCallback(response) {});
+
+
+
 
   // Tipos de identificacion
   $scope.tipoDocumento = '';
