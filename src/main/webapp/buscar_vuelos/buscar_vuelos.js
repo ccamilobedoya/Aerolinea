@@ -56,20 +56,40 @@ angular.module('app.buscarvuelos', ['ngRoute'])
           method: 'GET',
           url: urlCompleta
         }).then(function successCallback(response) {
-          $scope.cargando = false;
           $scope.vuelos = response.data;
-          $scope.isCollapsed = false;
-          // Le da formato a las fechas que se devuelven
+
+          // Para cada vuelo
           for (var i = 0; i < $scope.vuelos.length; i++){
+            // Le da formato a las fechas que se devuelven
             $scope.vuelos[i].salida = moment($scope.vuelos[i].salida).format('DD-MM-YYYY / HH:mm');
             $scope.vuelos[i].llegada = moment($scope.vuelos[i].llegada).format('DD-MM-YYYY / HH:mm');
+            // Busca sillas para cada vuelo
+            buscarSillas(i);
           }
+
+          $scope.cargando = false;
+          $scope.isCollapsed = false;
           console.log($scope.vuelos)
         }, function errorCallback(response) {
             $scope.cargando = false;
         });
       };
 
+      // Funcion para buscar las sillas vacias para cada vuelo y lo agrega
+      function buscarSillas(j) {
+        $http({
+          method: 'GET',
+          url: 'http://localhost:8080/Aerolinea/rest/sillas/contar'
+            + '?vuelo=' + $scope.vuelos[j].id_vuelo
+        }).then(function successCallback(response) {
+                  $scope.vuelos[j].sillas = response.data;
+                },
+                function errorCallback(response){});
+      }
+
+
+
+      // Cada vuelo tiene este metodo
       $scope.goComprar = function(id) {
     	  $location.path('/comprar/' + id);
       };

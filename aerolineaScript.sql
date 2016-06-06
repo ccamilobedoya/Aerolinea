@@ -241,7 +241,7 @@ DROP TABLE IF EXISTS `Aerolinea`.`TIPOCLASE` ;
 CREATE TABLE IF NOT EXISTS `Aerolinea`.`TIPOCLASE` (
   `id_tipoclase` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
-  `mutiplicadorprecio` DOUBLE NOT NULL,
+  `multiplicadorprecio` DOUBLE NOT NULL,
   PRIMARY KEY (`id_tipoclase`))
 ENGINE = InnoDB;
 
@@ -414,9 +414,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `Aerolinea`;
-INSERT INTO `Aerolinea`.`TIPOCLASE` (`id_tipoclase`, `nombre`, `mutiplicadorprecio`) VALUES (1, 'Turista', 1);
-INSERT INTO `Aerolinea`.`TIPOCLASE` (`id_tipoclase`, `nombre`, `mutiplicadorprecio`) VALUES (2, 'Ejecutiva', 1.5);
-INSERT INTO `Aerolinea`.`TIPOCLASE` (`id_tipoclase`, `nombre`, `mutiplicadorprecio`) VALUES (3, 'Especial', 0.78);
+INSERT INTO `Aerolinea`.`TIPOCLASE` (`id_tipoclase`, `nombre`, `multiplicadorprecio`) VALUES (1, 'Turista', 1);
+INSERT INTO `Aerolinea`.`TIPOCLASE` (`id_tipoclase`, `nombre`, `multiplicadorprecio`) VALUES (2, 'Ejecutiva', 1.5);
+INSERT INTO `Aerolinea`.`TIPOCLASE` (`id_tipoclase`, `nombre`, `multiplicadorprecio`) VALUES (3, 'Especial', 0.78);
 
 COMMIT;
 
