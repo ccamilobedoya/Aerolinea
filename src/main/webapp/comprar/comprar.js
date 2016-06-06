@@ -11,9 +11,9 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
   ])
 
 .controller('comprarCtrl', function($scope, $http, $cookies, $location, $routeParams){
-  $scope.vuelo = '';
-
+  
   // Busca los datos del vuelo de acuerdo a la url
+  $scope.vuelo = '';
   var urlCompleta = 'http://localhost:8080/Aerolinea/rest/vuelos/busquedaunica' +
     '?' + 'id=' + $routeParams.vueloid;
   $http({
@@ -26,6 +26,8 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
 
   });
 
-  
+  // Tipos de identificacion
+  $scope.tipoDocumento = '';
+  $scope.tiposDocumentos = ['Cedula', 'DNI'];
 
 })

@@ -116,5 +116,10 @@
 		<property name="paisDao" ref="paisDao"></property>
 		<property name="itinerarioDao" ref="itinerarioDao"></property>
 	</bean>
+	<bean id="sillasBl" class="com.edu.udea.bl.impl.SillasBLImpl">
+		<property name="pasajeDao" ref="pasajeDao"></property>
+		<property name="sillaDao" ref="sillaDao"></property>
+		<property name="vueloDao" ref="vueloDao"></property>
+	</bean>
 
 </beans>
