@@ -385,7 +385,7 @@ INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `preci
 INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (6, 3, 5, 310000, 3, 1, 32, '2016-09-25 05:40:00', '2016-09-25 12:00:00');
 INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (7, 1, 4, 280000, 2, 1, 28, '2016-12-25 06:40:00', '2016-12-25 07:30:00');
 INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (8, 2, 4, 210000, 1, 3, 40, '2016-12-25 08:00:00', '2016-12-25 12:00:00');
-INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (9, 2, 8, 270000, 1, 3, 40, '2016-12-29 05:40:00', '2016-12-29 07:40:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (9, 3, 8, 270000, 1, 3, 40, '2016-12-29 05:40:00', '2016-12-29 07:40:00');
 COMMIT;
 
 
