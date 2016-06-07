@@ -222,6 +222,43 @@ h2.titulo {
 	cursor: pointer;
 }
 
+.puesto {
+	font-size: 14px;
+	margin-right: 8px;
+}
+
+
+[tooltip]:after {
+	opacity: 0;
+	content: attr(tooltip);
+	font-family: 'Open Sans', sans-serif;
+  padding-top: 4px;
+	padding-bottom: 5px;
+	padding-left: 6px;
+	padding-right: 6px;
+  color: #ebebeb;
+  position: absolute;
+	top: 0;
+  white-space: nowrap;
+  z-index: 20px;
+	background: -moz-linear-gradient(top, rgba(130,167,142,1) 0%, rgba(95,140,108,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(130,167,142,1)), color-stop(100%, rgba(95,140,108,1)));
+	background: -webkit-linear-gradient(top, rgba(130,167,142,1) 0%, rgba(95,140,108,1) 100%);
+	background: -o-linear-gradient(top, rgba(130,167,142,1) 0%, rgba(95,140,108,1) 100%);
+	background: -ms-linear-gradient(top, rgba(130,167,142,1) 0%, rgba(95,140,108,1) 100%);
+	background: linear-gradient(to bottom, rgba(130,167,142,1) 0%, rgba(95,140,108,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82a78e', endColorstr='#5f8c6c', GradientType=0 );
+	border-width: 0px;
+	border-radius: 3px;
+	-webkit-transition: opacity 0.22s ease-in, top 0.15s ease-out;
+  -moz-transition: opacity 0.22s ease-in, top 0.15s ease-out;
+  -o-transition: opacity 0.22s ease-in, top 0.15s ease-out;
+  transition: opacity 0.22s ease-in, top 0.15s ease-out;
+}
+[tooltip]:hover:after {
+	opacity: 1;
+	top: -30px;
+}
 /*
 .blur-10 {
 	-webkit-filter: blur(10px);

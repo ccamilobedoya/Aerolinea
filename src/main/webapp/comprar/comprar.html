@@ -78,10 +78,19 @@
 
       <div class="panel-registro">
         <div class="titulo-relativo titulo-datos">
-          <h2 class="titulo">Seleccion de Puesto</h2>
+          <h2 class="titulo">Selección de Puesto</h2>
         </div>
-        <div class="row">
-          
+        <div class="row" >
+          <center>
+            <div class="row" ng-repeat="filas in sillas">
+              <span
+                class="glyphicon glyphicon-stop puesto"
+                ng-repeat="silla in filas"
+                ng-click="clickSilla(silla.id_silla)"
+                ng-attr-tooltip="Fila: {{silla.fila}}, Columna: {{silla.columna}}">
+              </span>
+            </div>
+          </center>
         </div>
 			</div>
       <br>
