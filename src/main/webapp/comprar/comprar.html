@@ -82,11 +82,13 @@
         </div>
         <div class="row" >
           <center>
+            <p>Puesto Seleccionado: <strong>[{{sillaSeleccionada.fila}}, {{sillaSeleccionada.columna}}]</strong></p>
             <div class="row" ng-repeat="filas in sillas">
               <span
                 class="glyphicon glyphicon-stop puesto"
                 ng-repeat="silla in filas"
-                ng-click="clickSilla(silla.id_silla)"
+                ng-class="silla.pasaje"
+                ng-click="clickSilla(silla.id_silla, silla.fila, silla.columna)"
                 ng-attr-tooltip="Fila: {{silla.fila}}, Columna: {{silla.columna}}">
               </span>
             </div>

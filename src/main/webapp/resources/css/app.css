@@ -226,6 +226,16 @@ h2.titulo {
 	font-size: 14px;
 	margin-right: 8px;
 }
+.puesto.libre {
+	color: rgb(180, 180, 180);
+	cursor: pointer;
+}
+.puesto.ocupado {
+	color: rgb(56, 56, 56);
+}
+.puesto.seleccionado {
+	color: #609076;
+}
 
 
 [tooltip]:after {

@@ -40,6 +40,12 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
         recorrido = i;
         for (var j = 0; j < $scope.vuelo.avion.columnas; j++){
           $scope.sillas[i][j] = response.data[recorrido];
+          if ($scope.sillas[i][j].pasaje != null){
+            $scope.sillas[i][j].pasaje = 'ocupado';
+          }
+          else{
+            $scope.sillas[i][j].pasaje = 'libre';
+          }
           recorrido += $scope.vuelo.avion.filas;
         }
       }
@@ -48,9 +54,26 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
 
   }, function errorCallback(response) {});
 
-  // Click en una silla determinada
-  $scope.clickSilla = function(id_silla) {
-    alert(id_silla);
+  // Click en una silla determinada para seleccionarla
+  $scope.sillaSeleccionada = [];
+  $scope.sillaSeleccionada.fila = '-';
+  $scope.sillaSeleccionada.columna = '-';
+  $scope.clickSilla = function(id_silla, f, c) {
+    // Si la silla no esta ocupada (Es clickeable)
+    if ($scope.sillas[f-1][c-1].pasaje != 'ocupado'){
+      // Borra el color de las silla seleccionada anteriormente
+      for (var i = 0; i < $scope.vuelo.avion.filas; i++){
+        for (var j = 0; j < $scope.vuelo.avion.columnas; j++){
+          if ($scope.sillas[i][j].pasaje == 'seleccionado'){
+            $scope.sillas[i][j].pasaje = 'libre';
+            break;
+          }
+        }
+      }
+      // Guarda la silla seleccionada y le cambia el color
+      $scope.sillaSeleccionada = $scope.sillas[f-1][c-1];
+      $scope.sillas[f-1][c-1].pasaje = 'seleccionado';
+    }
   };
 
   // Tipos de identificacion
