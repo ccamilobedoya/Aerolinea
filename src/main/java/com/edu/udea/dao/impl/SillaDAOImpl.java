@@ -81,7 +81,7 @@ public class SillaDAOImpl extends HibernateDaoSupport implements SillaDAO{
 		try{
 			session = getSession();
 			tr = (Transaction) session.beginTransaction();
-			session.update(silla);
+			session.merge(silla);
 			tr.commit();
 			resultado = true;
 		}

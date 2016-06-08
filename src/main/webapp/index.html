@@ -28,15 +28,13 @@
       <div class="navbar-collapse collapse" id="navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="#buscar">Buscar Vuelos</a></li>
-          <li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
+
         </ul>
 				<ul class="nav navbar-nav navbar-right" ng-controller="appCtrl">
 					<li ng-hide="logueado"><a href="#registro">Registro</a></li>
 					<li ng-hide="logueado"><a href="#ingreso">Ingresar</a></li>
 
-					<li ng-show="logueado"><a href="">{{nombreUsuario}}</a></li>
+					<li ng-show="logueado"><a href="">Usuario: {{nombreUsuario}}</a></li>
 					<li ng-show="logueado"><a href="" ng-click="salir()">Salir</a></li>
 
 				</ul>

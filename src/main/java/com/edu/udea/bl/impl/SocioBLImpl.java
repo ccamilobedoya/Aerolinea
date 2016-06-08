@@ -65,6 +65,18 @@ public class SocioBLImpl implements SocioBL {
 		
 		return valido;
 	}
+	
+	public Socio consultar(String usuario) throws Excepcion {
+		
+		if (usuario.isEmpty()) {
+			return null;
+		}
+		Socio socio = new Socio();
+		socio = socioDao.consultar(usuario);
+		
+		return socio;
+		
+	}
 
 	public Boolean editarContrasena(String usuario, String contrasena, String nuevaContrasena) throws Excepcion {
 		Boolean hecho = false;

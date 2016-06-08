@@ -11,6 +11,43 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
   ])
 
 .controller('comprarCtrl', function($scope, $http, $cookies, $location, $routeParams){
+  // Para los mensajes
+  $scope.isCollapsed = true;
+  $scope.mensaje = [];
+
+  // Datos del formulario
+  $scope.nombre = '';
+  $scope.documento = '';
+  $scope.correo = '';
+  $scope.tipoDocumento = '';
+  $scope.millas = '';
+  $scope.readonly = false;
+  $scope.isnUser = true;
+  $scope.checkedPagar = true;
+  // Tipos de identificacion
+  $scope.tiposDocumentos = ['Cedula', 'DNI'];
+
+  // Si ya es un socio
+  $scope.socio = [];
+  var user = $cookies.get('user');
+  if (user != null) {
+    // si hay un socio logueado, busca sus datos
+    $http.get('http://localhost:8080/Aerolinea/rest/socio/consultar'
+      + '?usuario=' + user).then(
+        function successCallback(response){
+          $scope.socio = response.data;
+
+          // Cambia los datos pertinentes de acuerdo a los del socio
+          $scope.nombre = $scope.socio.cliente.nombre;
+          $scope.documento = $scope.socio.cliente.documento;
+          $scope.correo = $scope.socio.cliente.correo;
+          $scope.tipoDocumento = $scope.socio.cliente.tipoDocumento.nombre;
+          $scope.millas = $scope.socio.millas;
+          $scope.readonly = true;
+          $scope.isnUser = false;
+        }
+    );
+  }
 
   // Busca los datos del vuelo de acuerdo a la url
   $scope.vuelo = '';
@@ -61,14 +98,11 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
   $scope.clickSilla = function(id_silla, f, c) {
     // Si la silla no esta ocupada (Es clickeable)
     if ($scope.sillas[f-1][c-1].pasaje != 'ocupado'){
-      // Borra el color de las silla seleccionada anteriormente
-      for (var i = 0; i < $scope.vuelo.avion.filas; i++){
-        for (var j = 0; j < $scope.vuelo.avion.columnas; j++){
-          if ($scope.sillas[i][j].pasaje == 'seleccionado'){
-            $scope.sillas[i][j].pasaje = 'libre';
-            break;
-          }
-        }
+      // Borra el color de la silla seleccionada anteriormente
+      if ($scope.sillaSeleccionada.fila != '-'){
+        $scope.sillas
+        [$scope.sillaSeleccionada.fila-1]
+        [$scope.sillaSeleccionada.columna-1].pasaje = 'libre';
       }
       // Guarda la silla seleccionada y le cambia el color
       $scope.sillaSeleccionada = $scope.sillas[f-1][c-1];
@@ -76,8 +110,103 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
     }
   };
 
-  // Tipos de identificacion
-  $scope.tipoDocumento = '';
-  $scope.tiposDocumentos = ['Cedula', 'DNI'];
+  // Metodos de pagado
+  $scope.otrosMetodos = function(){
+    $scope.checkedPagar = true;
+  }
+  $scope.pagarMillas = function(){
+    $scope.checkedPagar = false;
+  }
+
+  ///////////// Click en comprar //////////////
+  $scope.comprar = function () {
+    // Si aun no selecciona una silla o llena un dato
+    if ($scope.sillaSeleccionada.fila == '-' ||
+        !$scope.documento || !$scope.tipoDocumento ||
+        !$scope.nombre || !$scope.correo){
+      $scope.mensaje.alerta = 'alert-warning';
+      $scope.mensaje.titulo = 'Problema con la informacion proporcionada ';
+      $scope.mensaje.texto = 'Por favor verifica que toda la informacion sea correcta y que seleccionaras un puesto disponible.';
+      $scope.isCollapsed = false;
+    }
+    // Si todos los datos estan
+    else {
+      // JSONs a usar
+      var clientejson = JSON.stringify(
+        {
+          "documento" : $scope.documento,
+          "tipoDocumento" : {
+              "nombre" : $scope.tipoDocumento
+          },
+          "nombre" : $scope.nombre,
+          "correo" : $scope.correo
+        }
+      );
+      var pasajejson = JSON.stringify(
+        {
+          "cliente" : {
+              "documento" : $scope.documento,
+              "tipoDocumento" : {
+                  "nombre" : $scope.tipoDocumento
+              }
+          },
+          "itinerario" : {
+              "id_itinerario" : $scope.vuelo.itinerario.id_itinerario
+          },
+          "pagado" : $scope.checkedPagar
+        }
+      );
+
+      // Guardar el cliente
+      $http.post('http://localhost:8080/Aerolinea/rest/cliente/guardar',
+        clientejson).then(
+          function successCallback(response){
+
+            // Guardar Pasaje
+            $http.post('http://localhost:8080/Aerolinea/rest/pasaje/guardar',
+              pasajejson).then(
+                function successCallback(response){
+
+                  // Busca el id de pasaje
+                  $scope.pasaje = '';
+                  $http.get('http://localhost:8080/Aerolinea/rest/pasaje/consultarconitinerario'
+                    + '?documento=' + $scope.documento
+                    + '&tipo=' + $scope.tipoDocumento
+                    + '&itinerario=' + $scope.vuelo.itinerario.id_itinerario)
+                    .then(
+                      function successCallback(response){
+                        $scope.pasaje = response.data;
+
+                        // Crea el JSON de silla aca ya que necesita el id del pasaje
+                        var sillajson = JSON.stringify(
+                          {
+                            "id_silla" : $scope.sillaSeleccionada.id_silla,
+                            "pasaje" : {
+                                "id_pasaje" : $scope.pasaje.id_pasaje
+                            }
+                          }
+                        );
+
+                        // Actualizar silla
+                        $http.post('http://localhost:8080/Aerolinea/rest/sillas/editar',
+                          sillajson).then(
+                            function successCallback(response){
+                              $scope.mensaje.alerta = 'alert-info';
+                              $scope.mensaje.titulo = '¡Gracias por su compra! ';
+                              $scope.mensaje.texto = 'Seras redireccionado en unos segundos.';
+                              $scope.isCollapsed = false;
+                            },
+                            function errorCallback(response){});
+                    },function errorCallback(response){});
+                },
+                function errorCallback(response){});
+          },
+          function errorCallback(response){});
+    }
+
+
+
+  };
+
 
 })

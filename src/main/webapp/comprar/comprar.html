@@ -7,36 +7,54 @@
       <form>
         <div class="form-group">
           <label for="nombre">Nombre Completo:</label>
-          <input type="text" class="form-control" id="nombre" value="" required>
+          <input type="text" ng-model="nombre" class="form-control" id="nombre" value="" required ng-readonly="readonly">
         </div>
         <div class="form-group">
           <label for="identificacion">Identificacion:</label>
-          <input type="text" class="form-control" id="identificacion" value="" required>
+          <input type="text" ng-model="documento" class="form-control" id="identificacion" value="" required ng-readonly="readonly">
         </div>
         <div class="form-group">
           <label for="tipo">Tipo de Identificacion:</label>
-          <select class="form-control" ng-model="tipoDocumento" id="tipo" required>
+          <select class="form-control" ng-model="tipoDocumento" id="tipo" required  ng-disabled="readonly">
             <option ng-repeat="tipo in tiposDocumentos">{{tipo}}</option>
           </select>
         </div>
         <div class="form-group">
           <label for="email">Correo Electronico:</label>
-          <input type="text" class="form-control" id="email" value="" required>
+          <input type="text" ng-model="correo" class="form-control" id="email" value="" required ng-readonly="readonly">
         </div>
         <br>
-        <button type="" class="btn btn-default btn-verde btn-block" name="button">Comprar</button>
+        <button type="" ng-click="comprar()" class="btn btn-default btn-verde btn-block" name="button">Comprar</button>
         <br>
+        <div class="radio" ng-hide="isnUser">
+          <label>
+            <input type="radio" ng-click="pagarMillas()" name="optionsRadios" id="optionsRadios1" value="option1">
+            <p>Usar <strong>Millas</strong> para pagar. [Valor en Millas disponibles: <strong>{{millas}}</strong>]</p>
+          </label>
+        </div>
+        <div class="radio" ng-hide="isnUser">
+          <label>
+            <input type="radio" ng-click="otrosMetodos()" name="optionsRadios" id="optionsRadios2" value="option2" checked>
+            <p>Usar cualquiera de los demás metodos de pago.</p>
+          </label>
+          <br>
+        </div>
         <center>
           <span class="pf pf-paypal"></span>
           <span class="pf pf-bitcoin-sign"></span>
+          <span class="pf pf-sage"></span>
           <span class="pf pf-mastercard"></span>
           <span class="pf pf-visa"> </span>
-          <span class="pf pf-sage"></span>
-          <br>
+          <span class="pf pf-western-union"></span>
           <br>
           <br>
         </center>
       </form>
+      <div class="alert {{mensaje.alerta}}" ng-hide="isCollapsed" role="alert">
+        <strong>{{mensaje.titulo}}</strong> {{mensaje.texto}}
+      </div>
+      <br>
+      <br>
     </div>
 
     <div class="col-xs-12 col-sm-7">
@@ -67,7 +85,7 @@
               <center>
                 <br>
                 <p>Avion: <strong>{{vuelo.avion.nombre}}</strong></p>
-                <p>Millas acumulables: <strong>{{vuelo.millas}}</strong></p>
+                <p>Valor en Millas Acumulables: <strong>{{vuelo.millas}}</strong></p>
                 <p>Precio: <strong>${{vuelo.precio}}</strong></p>
               </center>
             </div>

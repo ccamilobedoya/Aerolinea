@@ -2,6 +2,9 @@ package com.edu.udea.dto;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Cliente implements Serializable{
 
 	/**

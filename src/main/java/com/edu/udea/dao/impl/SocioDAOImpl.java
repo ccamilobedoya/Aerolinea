@@ -111,7 +111,7 @@ public class SocioDAOImpl extends HibernateDaoSupport implements SocioDAO{
 		try{
 			session = getSession();
 			tr = (Transaction) session.beginTransaction();
-			session.update(socio);
+			session.merge(socio);
 			tr.commit();
 			resultado = true;
 		}

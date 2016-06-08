@@ -1,8 +1,11 @@
 package com.edu.udea.service;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -65,6 +68,17 @@ public class SocioService {
 					.status(Response.Status.BAD_REQUEST)
 					.build();
 		}		
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/consultar")
+	public Response consultar (
+			@QueryParam("usuario") String usuario) throws Excepcion {
+		
+		Socio socio = socioBl.consultar(usuario);
+		
+		return Response.ok().entity(socio).build();		
 	}
 	
 	

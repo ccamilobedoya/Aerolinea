@@ -1,5 +1,6 @@
 package com.edu.udea.bl;
 
+import com.edu.udea.dto.Socio;
 import com.edu.udea.excepcion.Excepcion;
 
 public interface SocioBL {
@@ -7,6 +8,8 @@ public interface SocioBL {
 	public Boolean crearSocio(String documento, String tipodocumento, String usuario, String contrasena) throws Excepcion;
 	
 	public Boolean validarSocio(String usuario, String contrasena) throws Excepcion;
+	
+	public Socio consultar(String usuario) throws Excepcion;
 	
 	public Boolean editarContrasena(String usuario, String contrasena, String nuevaContrasena) throws Excepcion;
 	

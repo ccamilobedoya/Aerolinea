@@ -19,7 +19,7 @@ var app = angular.module('app', [
 	     }
 	   ])
 
-app.controller('appCtrl', ['$scope', '$cookies', '$rootScope', function($scope, $cookies, $rootScope) {
+app.controller('appCtrl', ['$scope', '$cookies', '$rootScope', '$location', function($scope, $cookies, $rootScope, $location) {
 	$rootScope.logueado = false;
 	$rootScope.nombreUsuario = $cookies.get('user');
 	if ($rootScope.nombreUsuario == null){
@@ -32,6 +32,7 @@ app.controller('appCtrl', ['$scope', '$cookies', '$rootScope', function($scope, 
 	$scope.salir = function() {
 		$cookies.remove('user');
 		$rootScope.logueado = false;
+		$location.path('/');
 	};
 }]);
 

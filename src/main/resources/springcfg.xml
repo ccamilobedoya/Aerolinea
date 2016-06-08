@@ -121,5 +121,17 @@
 		<property name="sillaDao" ref="sillaDao"></property>
 		<property name="vueloDao" ref="vueloDao"></property>
 	</bean>
+	<bean id="clienteBl" class="com.edu.udea.bl.impl.ClienteBLImpl">
+		<property name="clienteDao" ref="clienteDao"></property>
+		<property name="tipodocumentoDao" ref="tipodocumentoDao"></property>
+	</bean>
+	<bean id="pasajeBl" class="com.edu.udea.bl.impl.PasajeBLImpl">
+		<property name="pasajeDao" ref="pasajeDao"></property>
+		<property name="clienteDao" ref="clienteDao"></property>
+		<property name="tipodocumentoDao" ref="tipodocumentoDao"></property>
+		<property name="itinerarioDao" ref="itinerarioDao"></property>
+		<property name="socioDao" ref="socioDao"></property>
+		<property name="vueloDao" ref="vueloDao"></property>
+	</bean>
 
 </beans>
