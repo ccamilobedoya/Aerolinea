@@ -347,16 +347,15 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `Aerolinea`;
-INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (1, 5000000);
-INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (2, 400500);
-INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (3, 605000);
-INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (4, 615000);
-INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (5, 415000);
-INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (6, 515000);
-INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (7, 435000);
-INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (8, 255000);
-INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (9, 345000);
-INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (10, 415000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (1, 800000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (2, 700000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (3, 400000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (4, 600000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (5, 300000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (6, 310000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (7, 280000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (8, 210000);
+INSERT INTO `Aerolinea`.`ITINERARIO` (`id_itinerario`, `preciocompleto`) VALUES (9, 270000);
 COMMIT;
 
 
@@ -377,15 +376,15 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `Aerolinea`;
-INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (1, 1, 1, 800000, 1, 2, 50, '2016-06-25 15:20:00', '2016-06-26 10:20:00');
-INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (2, 2, 1, 700000, 2, 3, 180, '2016-06-27 08:00:00', '2016-06-27 23:40:00');
-INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (3, 3, 2, 400000, 3, 1, 200, '2016-07-02 15:20:00', '2016-07-3 10:20:00');
-INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (4, 1, 3, 600000, 2, 1, 50, '2016-07-04 15:20:00', '2016-07-04 19:20:00');
-INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (5, 2, 9, 300000, 3, 2, 20, '2016-09-25 08:20:00', '2016-09-25 13:20:00');
-INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (6, 3, 5, 310000, 3, 1, 32, '2016-09-25 05:40:00', '2016-09-25 12:00:00');
-INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (7, 1, 4, 280000, 2, 1, 28, '2016-12-25 06:40:00', '2016-12-25 07:30:00');
-INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (8, 2, 4, 210000, 1, 3, 40, '2016-12-25 08:00:00', '2016-12-25 12:00:00');
-INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (9, 3, 8, 270000, 1, 3, 40, '2016-12-29 05:40:00', '2016-12-29 07:40:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (1, 1, 1, 800000, 1, 2, 50000, '2016-06-25 15:20:00', '2016-06-26 10:20:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (2, 2, 2, 700000, 2, 3, 180000, '2016-06-27 08:00:00', '2016-06-27 23:40:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (3, 3, 3, 400000, 3, 1, 200000, '2016-07-02 15:20:00', '2016-07-3 10:20:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (4, 1, 4, 600000, 2, 1, 50000, '2016-07-04 15:20:00', '2016-07-04 19:20:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (5, 2, 5, 300000, 3, 2, 20000, '2016-09-25 08:20:00', '2016-09-25 13:20:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (6, 3, 6, 310000, 3, 1, 32000, '2016-09-25 05:40:00', '2016-09-25 12:00:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (7, 1, 7, 280000, 2, 1, 28000, '2016-12-25 06:40:00', '2016-12-25 07:30:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (8, 2, 8, 210000, 1, 3, 40000, '2016-12-25 08:00:00', '2016-12-25 12:00:00');
+INSERT INTO `Aerolinea`.`VUELO` (`id_vuelo`, `id_avion`, `id_itinerario`, `precio`, `desde`, `hasta`, `millas`, `salida`, `llegada`) VALUES (9, 3, 9, 270000, 1, 3, 40000, '2016-12-29 05:40:00', '2016-12-29 07:40:00');
 COMMIT;
 
 
