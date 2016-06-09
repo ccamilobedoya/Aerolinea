@@ -10,7 +10,8 @@ var app = angular.module('app', [
 	 'app.ingresosocio',
 	 'app.principal',
 	 'app.buscarvuelos',
-	 'app.comprar'
+	 'app.comprar',
+	 'app.recibo'
 	 ])
 
 	 .config([ '$routeProvider',

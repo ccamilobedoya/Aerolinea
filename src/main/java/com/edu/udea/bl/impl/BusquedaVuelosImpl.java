@@ -40,8 +40,9 @@ public class BusquedaVuelosImpl implements BusquedaVuelos{
 
 	@Override
 	public List<Vuelo> listarVuelos(Integer id_itinerario) throws Excepcion {
-		// TODO Auto-generated method stub
-		return null;
+		if (id_itinerario == null)
+			return null;
+		return vueloDao.consultar(itinerarioDao.consultar(id_itinerario));
 	}
 
 	@Override

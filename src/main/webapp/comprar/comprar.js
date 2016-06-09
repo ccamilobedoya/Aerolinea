@@ -10,7 +10,7 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
     }
   ])
 
-.controller('comprarCtrl', function($scope, $http, $cookies, $location, $routeParams){
+.controller('comprarCtrl', function($scope, $http, $cookies, $location, $routeParams, $timeout){
   // Para los mensajes
   $scope.isCollapsed = true;
   $scope.mensaje = [];
@@ -59,8 +59,8 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
     url: urlCompleta
   }).then(function successCallback(response) {
     $scope.vuelo = response.data;
-    $scope.vuelo.salida = moment($scope.vuelo.salida).format('DD-MM-YYYY / HH:mm');
-    $scope.vuelo.llegada = moment($scope.vuelo.llegada).format('DD-MM-YYYY / HH:mm');
+    $scope.vuelo.salida = moment($scope.vuelo.salida).format('DD-MM-YYYY  HH:mm');
+    $scope.vuelo.llegada = moment($scope.vuelo.llegada).format('DD-MM-YYYY  HH:mm');
     console.log($scope.vuelo);
 
     // Busca los datos de las sillas con respecto al vuelo anterior
@@ -195,6 +195,35 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
                               $scope.mensaje.titulo = '¡Gracias por su compra! ';
                               $scope.mensaje.texto = 'Seras redireccionado en unos segundos.';
                               $scope.isCollapsed = false;
+
+                              $timeout(function () {
+                                if ($scope.checkedPagar) {
+                                  $scope.checkedPagar = 'Metodos de pago convencionales';
+                                }
+                                else {
+                                  $scope.checkedPagar = 'Pago con millas acumuladas';
+                                }
+                                var pth = '/recibo/' +
+                                  $scope.documento + '/' +
+                                  $scope.tipoDocumento + '/' +
+                                  $scope.nombre + '/' +
+                                  $scope.correo + '/' +
+                                  $scope.checkedPagar + '/' +
+                                  $scope.vuelo.precio + '/' +
+                                  $scope.pasaje.id_pasaje + '/' +
+                                  $scope.sillaSeleccionada.fila + '/' +
+                                  $scope.sillaSeleccionada.columna + '/' +
+                                  $scope.vuelo.avion.nombre + '/' +
+                                  $scope.vuelo.salida + '/' +
+                                  $scope.vuelo.llegada + '/' +
+                                  $scope.vuelo.desde.nombre + '/' +
+                                  $scope.vuelo.hasta.nombre + '/' +
+                                  $scope.vuelo.desde.direccion + '/' +
+                                  $scope.vuelo.hasta.direccion + '/' +
+                                  $scope.vuelo.desde.telefono + '/' +
+                                  $scope.vuelo.hasta.telefono;
+                                $location.path(pth);
+                              }, 1000);
                             },
                             function errorCallback(response){});
                     },function errorCallback(response){});

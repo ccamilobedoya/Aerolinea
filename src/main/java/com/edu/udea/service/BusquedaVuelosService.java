@@ -76,4 +76,20 @@ public class BusquedaVuelosService {
 				.build();
 	}
 	
+	@GET
+	@Path("/busquedaitinerario")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Transactional
+	public Response buscarVueloPorItinerario (
+			@QueryParam("itinerario") Integer id) throws Excepcion {
+		
+		List<Vuelo> vuelos = new ArrayList<Vuelo>();
+		vuelos = busquedavuelos.listarVuelos(id);
+		
+		return Response
+				.ok()
+				.entity(vuelos)
+				.build();
+	}
+	
 }
