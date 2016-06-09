@@ -269,10 +269,81 @@ h2.titulo {
 	opacity: 1;
 	top: -30px;
 }
-/*
-.blur-10 {
-	-webkit-filter: blur(10px);
-	filter:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' ><filter id='blur-10'><feGaussianBlur in='SourceGraphic' stdDeviation='10' /></filter></svg>#blur10");
-  filter:blur(10px);
+
+.profile-img {
+	width: 140px;
+}
+
+.li-active {
+	border-top: 0;
+	border-left: 0;
+	border-bottom: 0;
+	border-right: 2px;
+	border-style: solid;
+	border-color: #65947a;
+	background-color: #daebe2;
+}
+
+.nav-stacked > li > a {
+	color: rgb(59, 59, 59);
+}
+.nav-stacked > li > a:active, .nav-stacked > li > a:focus {
+	border-top: 0;
+	border-left: 0;
+	border-bottom: 0;
+	border-right: 2px;
+	border-style: solid;
+	border-color: #65947a;
+	background-color: #daebe2;
+}
+.nav-stacked >li >a:hover {
+	background-color: #daebe2;
+}
+
+/* Estas animaciones requieren ngAnimate
+
+.ng-hide-add {
+	animation: 0.5s flipInX ease;
+}
+
+
+.ng-hide-remove {
+	 animation: 0.5s flipInX ease;
+ }
+
+
+ @keyframes flipInX {
+  0% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  100% {
+    transform: perspective(400px);
+    transform: perspective(400px);
+    transform: perspective(400px);
+  }
 }
 */

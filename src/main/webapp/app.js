@@ -11,7 +11,8 @@ var app = angular.module('app', [
 	 'app.principal',
 	 'app.buscarvuelos',
 	 'app.comprar',
-	 'app.recibo'
+	 'app.recibo',
+	 'app.usuario'
 	 ])
 
 	 .config([ '$routeProvider',

@@ -1,5 +1,7 @@
 package com.edu.udea.service;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -37,6 +39,28 @@ public class SocioService {
 				socio.getContrasena());
 		
 		if (creado) {
+			return Response
+					.status(Response.Status.CREATED)
+					.build();
+		}
+		else {
+			return Response
+					.status(Response.Status.BAD_REQUEST)
+					.build();
+		}		
+	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/editarcontrasena")
+	public Response editarContrasena(String[] lista) throws Excepcion {
+
+		Boolean editado = socioBl.editarContrasena(
+				lista[0], 
+				lista[1], 
+				lista[2]);
+		
+		if (editado) {
 			return Response
 					.status(Response.Status.CREATED)
 					.build();

@@ -1,0 +1,81 @@
+<div class="espaciado-barra"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <ul class="nav nav-stacked">
+        <li>
+          <a href="" ng-click="tabclick('1')" ng-class="{'li-active' : t1}">Perfil</a>
+        </li>
+        <li>
+          <a href="" ng-click="tabclick('2')" ng-class="{'li-active' : t2}">Pasajes</a>
+        </li>
+        <li>
+          <a href="" ng-click="tabclick('3')" ng-class="{'li-active' : t3}">Editar</a>
+        </li>
+      </ul>
+      <br>
+    </div>
+    <div class="col-xs-0 col-sm-0"></div>
+    <div class="col-xs-12 col-sm-9">
+      <div class="" ng-show="t1">
+        <div class="panel-registro">
+          <div class="row">
+            <div class="col-xs-3">
+              <img src="resources/imgs/profile.png" alt="" class="img-responsive img-circle">
+            </div>
+            <div class="col-xs-1"></div>
+            <div class="col-xs-8">
+              <h4>Socio</h4>
+              <br>
+              <h2>{{usuario.cliente.nombre}}</h2>
+              <p>
+                Valor en millas acumuladas: {{usuario.millas}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="" ng-show="t2">
+        <p><strong>Funcion aun no disponible. </strong>Para ver sus recibos de pasajes, por favor revise su correo electronico.</p>
+      </div>
+      <div class="" ng-show="t3">
+        <div class="panel-registro">
+          <div class="row">
+            <div class="col-xs-3 ">
+              <img src="resources/imgs/lock.png" alt="" class="img-responsive img-circle" >
+            </div>
+            <div class="col-xs-1"></div>
+            <div class="col-xs-8">
+              <form class="">
+                <div class="form-group">
+                  <label for="contrasena1" class="control-label">
+                    Contraseña actual:
+                  </label>
+                  <input type="password" ng-model="contrasena" class="form-control" id="contrasena1" placeholder="Contraseña actual" required>
+                </div>
+                <div class="form-group">
+                  <label for="contrasena2" class="control-label">
+                    Nueva contraseña:
+                  </label>
+                  <input type="password" ng-model="contrasenan" class="form-control" id="contrasena2" placeholder="Nueva contraseña" required>
+                </div>
+                <br>
+              </form>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <br>
+            <button type="" ng-click="cambiar()" class="btn btn-default btn-verde btn-block" name="button">Cambiar Contraseña</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="alert {{mensaje.alerta}}" ng-show="mensaje.on" role="alert">
+      <strong>{{mensaje.titulo}}</strong> {{mensaje.texto}}
+    </div>
+    <br>
+  </div>
+</div>
