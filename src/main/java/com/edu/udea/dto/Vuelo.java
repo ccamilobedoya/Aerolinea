@@ -3,6 +3,9 @@ package com.edu.udea.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.transaction.annotation.Transactional;
+
+@Transactional
 public class Vuelo implements Serializable{
 
 	/**

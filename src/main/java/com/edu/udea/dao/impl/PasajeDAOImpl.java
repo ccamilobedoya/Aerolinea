@@ -30,6 +30,10 @@ public class PasajeDAOImpl extends HibernateDaoSupport implements PasajeDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion PasajeDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return pasajees;
 	}
@@ -48,6 +52,10 @@ public class PasajeDAOImpl extends HibernateDaoSupport implements PasajeDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion PasajeDAO - Consultar", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return pasaje;
 	}
@@ -65,6 +73,10 @@ public class PasajeDAOImpl extends HibernateDaoSupport implements PasajeDAO{
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion PasajeDAO", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return pasajees;
@@ -85,6 +97,10 @@ public class PasajeDAOImpl extends HibernateDaoSupport implements PasajeDAO{
 		}
 		catch(HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion PasajeDAO - Guardar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return resultado;

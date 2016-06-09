@@ -28,6 +28,10 @@ public class TipoClaseDAOImpl extends HibernateDaoSupport implements TipoClaseDA
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion TipoClaseDAO - Consultar", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return tipoclase;
 	}

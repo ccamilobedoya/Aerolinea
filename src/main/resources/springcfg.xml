@@ -17,13 +17,17 @@
 
 	<context:component-scan base-package="com.edu.udea.*" />
 
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" destroy-method="close"
+		class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/Aerolinea"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
+		<property name="initialSize" value="5"/>
+		<property name="removeAbandonedOnBorrow" value="true"/>
+		<property name="removeAbandonedTimeout" value="60"></property>
+		<property name="logAbandoned" value="true"></property>
 	</bean>
 
 	<bean id="sessionFactory"
@@ -54,6 +58,7 @@
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="javax.persistence.validation.mode">none</prop>
+				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
 			</props>
 		</property>
 	</bean>

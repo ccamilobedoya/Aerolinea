@@ -28,6 +28,10 @@ public class AvionDAOImpl extends HibernateDaoSupport implements AvionDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion AvionDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return aviones;
 	}
@@ -45,6 +49,10 @@ public class AvionDAOImpl extends HibernateDaoSupport implements AvionDAO{
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion AvionDAO - Consultar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return avion;

@@ -14,7 +14,7 @@
         <property name="documento" type="java.lang.String">
             <column name="documento" />
         </property>
-        <many-to-one name="tipoDocumento" class="com.edu.udea.dto.TipoDocumento" fetch="join">
+        <many-to-one name="tipoDocumento" class="com.edu.udea.dto.TipoDocumento" fetch="join" lazy="false">
             <column name="tipodocumento" />
         </many-to-one>
         <property name="correo" type="java.lang.String">

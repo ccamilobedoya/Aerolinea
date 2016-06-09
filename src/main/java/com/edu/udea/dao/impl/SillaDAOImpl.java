@@ -32,6 +32,10 @@ public class SillaDAOImpl extends HibernateDaoSupport implements SillaDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion SillaDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return sillaes;
 	}
@@ -50,6 +54,10 @@ public class SillaDAOImpl extends HibernateDaoSupport implements SillaDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion SillaDAO - Consultar", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return silla;
 	}
@@ -67,6 +75,10 @@ public class SillaDAOImpl extends HibernateDaoSupport implements SillaDAO{
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion SillaDAO - Consultar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return silla;
@@ -87,6 +99,10 @@ public class SillaDAOImpl extends HibernateDaoSupport implements SillaDAO{
 		}
 		catch(HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion SillaDAO - Actualizar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return resultado;

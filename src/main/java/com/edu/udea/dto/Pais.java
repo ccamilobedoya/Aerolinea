@@ -3,7 +3,9 @@ package com.edu.udea.dto;
 import java.io.Serializable;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Pais implements Serializable{
 

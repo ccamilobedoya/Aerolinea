@@ -32,6 +32,10 @@ public class VueloDAOImpl extends HibernateDaoSupport implements VueloDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion VueloDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return vueloes;
 	}
@@ -52,6 +56,10 @@ public class VueloDAOImpl extends HibernateDaoSupport implements VueloDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion VueloDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return vueloes;
 	}
@@ -69,6 +77,10 @@ public class VueloDAOImpl extends HibernateDaoSupport implements VueloDAO{
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion VueloDAO - Consultar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return vuelo;

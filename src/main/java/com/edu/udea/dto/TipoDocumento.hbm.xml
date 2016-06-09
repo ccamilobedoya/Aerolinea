@@ -8,7 +8,7 @@
             <column name="id_tipodocumento" />
             <generator class="increment" />
         </id>
-        <many-to-one name="pais" class="com.edu.udea.dto.Pais" fetch="join">
+        <many-to-one name="pais" class="com.edu.udea.dto.Pais" fetch="join" lazy="false">
             <column name="id_pais" />
         </many-to-one>
         <property name="nombre" type="java.lang.String">

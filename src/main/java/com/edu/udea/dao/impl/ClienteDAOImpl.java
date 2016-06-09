@@ -29,6 +29,10 @@ public class ClienteDAOImpl extends HibernateDaoSupport implements ClienteDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion ClienteDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return clientes;		
 	}
@@ -45,6 +49,10 @@ public class ClienteDAOImpl extends HibernateDaoSupport implements ClienteDAO{
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion ClienteDAO - Consultar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return cliente;
@@ -64,6 +72,10 @@ public class ClienteDAOImpl extends HibernateDaoSupport implements ClienteDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion ClienteDAO - Consultar", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return cliente;
 	}
@@ -82,6 +94,10 @@ public class ClienteDAOImpl extends HibernateDaoSupport implements ClienteDAO{
 		}
 		catch(HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion ClienteDAO - Guardar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return resultado;

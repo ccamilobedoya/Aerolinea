@@ -27,6 +27,10 @@ public class TipoDocumentoDAOImpl extends HibernateDaoSupport implements TipoDoc
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion TipoDocumentoDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return tipodocumentos;
 	}
@@ -44,6 +48,10 @@ public class TipoDocumentoDAOImpl extends HibernateDaoSupport implements TipoDoc
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion TipoDocumentoDAO - Consultar", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return tipodocumento;
 	}
@@ -60,6 +68,10 @@ public class TipoDocumentoDAOImpl extends HibernateDaoSupport implements TipoDoc
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion TipoDocumentoDAO - Consultar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return tipodocumento;

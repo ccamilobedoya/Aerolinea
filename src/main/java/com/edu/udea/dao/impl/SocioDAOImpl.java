@@ -29,6 +29,10 @@ public class SocioDAOImpl extends HibernateDaoSupport implements SocioDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion SocioDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return socios;
 	}
@@ -45,6 +49,10 @@ public class SocioDAOImpl extends HibernateDaoSupport implements SocioDAO{
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion SocioDAO - Consultar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return socio;
@@ -63,6 +71,10 @@ public class SocioDAOImpl extends HibernateDaoSupport implements SocioDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion SocioDAO - Consultar", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return socio;
 	}
@@ -79,6 +91,10 @@ public class SocioDAOImpl extends HibernateDaoSupport implements SocioDAO{
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion SocioDAO - Consultar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return socio;
@@ -99,6 +115,10 @@ public class SocioDAOImpl extends HibernateDaoSupport implements SocioDAO{
 		catch(HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion SocioDAO - Guardar", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return resultado;
 	}
@@ -117,6 +137,10 @@ public class SocioDAOImpl extends HibernateDaoSupport implements SocioDAO{
 		}
 		catch(HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion SocioDAO - Actualizar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return resultado;

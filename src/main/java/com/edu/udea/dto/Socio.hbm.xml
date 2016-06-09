@@ -8,7 +8,7 @@
             <column name="id_socio" />
             <generator class="increment" />
         </id>
-        <many-to-one name="cliente" class="com.edu.udea.dto.Cliente" fetch="join">
+        <many-to-one name="cliente" class="com.edu.udea.dto.Cliente" fetch="join" lazy="false">
             <column name="id_cliente" />
         </many-to-one>
         <property name="usuario" type="java.lang.String">

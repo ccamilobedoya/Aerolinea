@@ -31,6 +31,10 @@ public class AeropuertoDAOImpl extends HibernateDaoSupport implements Aeropuerto
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion AeropuertoDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return aeropuertoes;
 	}
@@ -49,6 +53,10 @@ public class AeropuertoDAOImpl extends HibernateDaoSupport implements Aeropuerto
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion AeropuertoDAO - Consultar", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 				
 		return aeropuerto;
 	}
@@ -66,6 +74,10 @@ public class AeropuertoDAOImpl extends HibernateDaoSupport implements Aeropuerto
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion AeropuertoDAO - Consultar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return aeropuerto;

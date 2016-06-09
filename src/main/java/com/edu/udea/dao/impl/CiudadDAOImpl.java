@@ -28,6 +28,10 @@ public class CiudadDAOImpl extends HibernateDaoSupport implements CiudadDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion CiudadDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return ciudades;
 	}
@@ -45,6 +49,10 @@ public class CiudadDAOImpl extends HibernateDaoSupport implements CiudadDAO{
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion CiudadDAO - Consultar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return ciudad;

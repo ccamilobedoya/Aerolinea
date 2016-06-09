@@ -2,6 +2,9 @@ package com.edu.udea.dto;
 
 import java.io.Serializable;
 
+import org.springframework.transaction.annotation.Transactional;
+
+@Transactional
 public class Aeropuerto implements Serializable{
 
 	/**

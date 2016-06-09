@@ -28,6 +28,10 @@ public class ItinerarioDAOImpl extends HibernateDaoSupport implements Itinerario
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion ItinerarioDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return itinerarioes;
 	}
@@ -45,6 +49,10 @@ public class ItinerarioDAOImpl extends HibernateDaoSupport implements Itinerario
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion ItinerarioDAO - Consultar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return itinerario;

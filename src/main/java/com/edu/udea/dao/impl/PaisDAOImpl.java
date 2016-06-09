@@ -28,6 +28,10 @@ public class PaisDAOImpl extends HibernateDaoSupport implements PaisDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion PaisDAO", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return paises;
 	}
@@ -45,6 +49,10 @@ public class PaisDAOImpl extends HibernateDaoSupport implements PaisDAO{
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion PaisDAO - Consultar", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return pais;
 	}
@@ -61,6 +69,10 @@ public class PaisDAOImpl extends HibernateDaoSupport implements PaisDAO{
 		}
 		catch (HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion PaisDAO - Consultar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return pais;
@@ -81,6 +93,10 @@ public class PaisDAOImpl extends HibernateDaoSupport implements PaisDAO{
 		catch(HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion PaisDAO - Guardar", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return resultado;
 	}
@@ -100,6 +116,10 @@ public class PaisDAOImpl extends HibernateDaoSupport implements PaisDAO{
 		catch(HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion PaisDAO - Actualizar", e);
 		}
+		finally {
+			if (session != null)
+				session.close();
+		}
 		
 		return resultado;
 	}
@@ -118,6 +138,10 @@ public class PaisDAOImpl extends HibernateDaoSupport implements PaisDAO{
 		}
 		catch(HibernateException e){
 			throw new Excepcion("Problema con hibernate - Seccion PaisDAO - Borrar", e);
+		}
+		finally {
+			if (session != null)
+				session.close();
 		}
 		
 		return resultado;
