@@ -1,6 +1,8 @@
 package com.edu.udea.bl.impl;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.edu.udea.bl.SocioBL;
 import com.edu.udea.dao.ClienteDAO;
 import com.edu.udea.dao.SocioDAO;
@@ -8,12 +10,16 @@ import com.edu.udea.dao.TipoDocumentoDAO;
 import com.edu.udea.dto.Cliente;
 import com.edu.udea.dto.Socio;
 import com.edu.udea.excepcion.Excepcion;
+import com.edu.udea.util.EmailUtility;
 
 public class SocioBLImpl implements SocioBL {
 
 	SocioDAO socioDao;
 	ClienteDAO clienteDao;
 	TipoDocumentoDAO tipodocumentoDao;
+	
+	@Autowired
+	EmailUtility email;
 	
 	public Boolean crearSocio(String documento, String tipodocumento, String usuario, String contrasena)
 			throws Excepcion {

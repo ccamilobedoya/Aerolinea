@@ -10,7 +10,7 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
     }
   ])
 
-.controller('comprarCtrl', function($scope, $http, $cookies, $location, $routeParams, $timeout){
+.controller('comprarCtrl', function($scope, $http, $cookies, $location, $routeParams, $timeout, correo){
   // Para los mensajes
   $scope.isCollapsed = true;
   $scope.mensaje = [];
@@ -196,32 +196,43 @@ angular.module('app.comprar', ['ngRoute', 'ngCookies'])
                               $scope.mensaje.texto = 'Seras redireccionado en unos segundos.';
                               $scope.isCollapsed = false;
 
+
+                              // URL del recibo
+                              if ($scope.checkedPagar) {
+                                $scope.checkedPagar = 'Metodos de pago convencionales';
+                              }
+                              else {
+                                $scope.checkedPagar = 'Pago con millas acumuladas';
+                              }
+                              var pth = '/recibo/' +
+                                $scope.documento + '/' +
+                                $scope.tipoDocumento + '/' +
+                                $scope.nombre + '/' +
+                                $scope.correo + '/' +
+                                $scope.checkedPagar + '/' +
+                                $scope.vuelo.precio + '/' +
+                                $scope.pasaje.id_pasaje + '/' +
+                                $scope.sillaSeleccionada.fila + '/' +
+                                $scope.sillaSeleccionada.columna + '/' +
+                                $scope.vuelo.avion.nombre + '/' +
+                                $scope.vuelo.salida + '/' +
+                                $scope.vuelo.llegada + '/' +
+                                $scope.vuelo.desde.nombre + '/' +
+                                $scope.vuelo.hasta.nombre + '/' +
+                                $scope.vuelo.desde.direccion + '/' +
+                                $scope.vuelo.hasta.direccion + '/' +
+                                $scope.vuelo.desde.telefono + '/' +
+                                $scope.vuelo.hasta.telefono;
+
+                              // Envio de correo
+                              correo($scope.nombre,
+                                 $scope.correo,
+                                  'Recibo de pasaje #' + $scope.pasaje.id_pasaje +' - Aerolinea UdeA',
+                                  '¡Gracias por tu compra!',
+                                  'Si deseas ver tu recibo ve a este <a href="http://localhost:8080/Aerolinea/#' + pth + '">Enlace.</a>');
+
+                              // Redireccion
                               $timeout(function () {
-                                if ($scope.checkedPagar) {
-                                  $scope.checkedPagar = 'Metodos de pago convencionales';
-                                }
-                                else {
-                                  $scope.checkedPagar = 'Pago con millas acumuladas';
-                                }
-                                var pth = '/recibo/' +
-                                  $scope.documento + '/' +
-                                  $scope.tipoDocumento + '/' +
-                                  $scope.nombre + '/' +
-                                  $scope.correo + '/' +
-                                  $scope.checkedPagar + '/' +
-                                  $scope.vuelo.precio + '/' +
-                                  $scope.pasaje.id_pasaje + '/' +
-                                  $scope.sillaSeleccionada.fila + '/' +
-                                  $scope.sillaSeleccionada.columna + '/' +
-                                  $scope.vuelo.avion.nombre + '/' +
-                                  $scope.vuelo.salida + '/' +
-                                  $scope.vuelo.llegada + '/' +
-                                  $scope.vuelo.desde.nombre + '/' +
-                                  $scope.vuelo.hasta.nombre + '/' +
-                                  $scope.vuelo.desde.direccion + '/' +
-                                  $scope.vuelo.hasta.direccion + '/' +
-                                  $scope.vuelo.desde.telefono + '/' +
-                                  $scope.vuelo.hasta.telefono;
                                 $location.path(pth);
                               }, 1000);
                             },

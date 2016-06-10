@@ -10,10 +10,11 @@ angular.module('app.usuario', ['ngRoute', 'ngCookies'])
     }
   ])
 
-.controller('usuarioCtrl', function($scope, $http, $cookies) {
+.controller('usuarioCtrl', function($scope, $http, $cookies, correo) {
   // mensaje
   $scope.mensaje = [];
   $scope.mensaje.on = false;
+  $scope.espera = false;
 
   // Muestra la TAB seleccionada
   $scope.t1 = true;
@@ -59,6 +60,7 @@ angular.module('app.usuario', ['ngRoute', 'ngCookies'])
   $scope.contrasena = '';
   $scope.contrasenan = '';
   $scope.cambiar = function(){
+    $scope.espera = true;
     var datos = [$cookies.get('user'), $scope.contrasena, $scope.contrasenan];
     $http.post('http://localhost:8080/Aerolinea/rest/socio/editarcontrasena', datos)
     .then(function successCallback(response) {
@@ -66,11 +68,18 @@ angular.module('app.usuario', ['ngRoute', 'ngCookies'])
       $scope.mensaje.titulo = '¡Perfecto! ';
       $scope.mensaje.texto = 'Tu contraseña se cambio correctamente.';
       $scope.mensaje.on = true;
+      $scope.espera = false;
+      correo($scope.usuario.cliente.nombre,
+         $scope.usuario.cliente.correo,
+          'Cambio de contraseña - Aerolinea UdeA',
+          'Has cambiado tu contraseña exitosamente',
+          'Ahora puedes ingresar al sitio con tu contraseña totalmente nueva y mejorada :)');
     }, function errorCallback(response) {
       $scope.mensaje.alerta = 'alert-warning';
       $scope.mensaje.titulo = '¡Algo ocurrio! ';
       $scope.mensaje.texto = 'Probablemente tu contraseña este mal escrita.';
       $scope.mensaje.on = true;
+      $scope.espera = false;
     });
   };
 

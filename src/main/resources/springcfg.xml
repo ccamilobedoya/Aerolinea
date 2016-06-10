@@ -138,5 +138,8 @@
 		<property name="socioDao" ref="socioDao"></property>
 		<property name="vueloDao" ref="vueloDao"></property>
 	</bean>
+	
+	<bean id="email" class="com.edu.udea.util.EmailUtility">
+	</bean>
 
 </beans>
